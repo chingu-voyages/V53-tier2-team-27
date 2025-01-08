@@ -37,6 +37,7 @@ coding!
 - Teammate name #1: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Ryan Nolan: [GitHub](https://github.com/ryannolanco) / [LinkedIn](https://www.linkedin.com/in/ryannolanco/)
-- 
+- William Kalish: [GitHub](https://github.com/williamk31) / [LinkedIn](https://linkedin.com/in/william-kalish)
+
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
