@@ -42,4 +42,5 @@ coding!
 - Ryan Nolan: [GitHub](https://github.com/ryannolanco) / [LinkedIn](https://www.linkedin.com/in/ryannolanco/)
 - Abby Nyhof: [GitHub](https://github.com/abbynyhof) / [LinkedIn](https://www.linkedin.com/in/abbynyhof/)
 - Matthew Neie (Developer): [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
+
 -Guillermo Guevara: [GitHub](https://github.com/guillermoguevara887) / [LinkedIn](https://www.linkedin.com/in/guillermo-guevara-6758a51a0)
