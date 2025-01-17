@@ -37,7 +37,6 @@ coding!
 
 - Valerie Johnson: [GitHub](https://github.com/johnsonval) / [LinkedIn](https://linkedin.com/in/valeriemichellejohnson)
 - Ayoum Soumah: [GitHub](https://github.com/fodelaye26) / [LinkedIn](https://linkedin.com/in/asoumahpm/)
-- Teammate name #3: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - William Kalish: [GitHub](https://github.com/williamk31) / [LinkedIn](https://linkedin.com/in/william-kalish)
 - Ryan Nolan: [GitHub](https://github.com/ryannolanco) / [LinkedIn](https://www.linkedin.com/in/ryannolanco/)
 - Abby Nyhof: [GitHub](https://github.com/abbynyhof) / [LinkedIn](https://www.linkedin.com/in/abbynyhof/)
