@@ -1,0 +1,73 @@
+.week-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.week-select-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+  font-size: 1vw;
+}
+
+.prev-week-button {
+  width: 10vw;
+  padding: 0.7vw;
+  background-color: white;
+  border: 1px solid #841933;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.next-week-button {
+  width: 10vw;
+  padding: 0.7vw;
+  background-color: white;
+  border: 1px solid #841933;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.first-row-dates {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2vh;
+}
+
+.second-row-dates {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.generate-div {
+  padding: 1.5vw;
+  background-color: #edeee8;
+  color: #2c363f;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 15vw;
+  border-radius: 50%;
+}
+
+.generate-button {
+  font-size: 1.5vw;
+}
+
+.day-container {
+  background-color: #edeee8;
+  border-radius: 16px;
+  color: #2c363f;
+  padding: 1.5vw;
+  width: 15vw;
+  height: 18vh;
+}
+
+.day-title {
+  font-size: 1.5vw;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
