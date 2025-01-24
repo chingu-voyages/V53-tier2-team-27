@@ -1,10 +1,13 @@
 import { useState } from "react";
+import Home from "./components/Home";
+import AllergyForm from "./components/Form/index";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <h1>Menu Scheduler</h1>
+      <Home />
+      <AllergyForm />
     </>
   );
 }
