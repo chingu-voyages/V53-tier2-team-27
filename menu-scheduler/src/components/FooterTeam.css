@@ -1,0 +1,66 @@
+.footer-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-top: 2px solid #ddd;
+}
+
+.footer-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.team-member {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* La segunda columna ocupa el espacio restante */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.member-name {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    /* Alinea los íconos al final de la fila */
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
