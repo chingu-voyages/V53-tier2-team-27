@@ -45,19 +45,21 @@ function stringLengthsAreValid(arr, amount) {
 
 //main functions
 function addAllergiesOnly(key, allergies) {
+  if (typeof key !== "string" || key.trim() === "") {
+    throw new Error("Invalid input: key must be a non-empty string");
+  }
+
   if (!Array.isArray(allergies)) {
     throw new Error("Invalid input: allergies must be an array");
   }
 
   arrayValuesAreValidStrings(allergies);
 
-  const storedAllergies = localStorage.getItem(key);
 
-  let parsedAllergies = storedAllergies ? JSON.parse(storedAllergies) : [];
+  const uniqueAllergies = Array.from(new Set(allergies));
 
-  let updatedAllergies = new Set([...allergies, ...parsedAllergies]);
 
-  localStorage.setItem(key, JSON.stringify([...updatedAllergies]));
+  localStorage.setItem(key, JSON.stringify(uniqueAllergies));
 }
 
 //read functionality to store information in state.
