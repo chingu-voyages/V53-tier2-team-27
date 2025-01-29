@@ -50,6 +50,7 @@
   justify-content: center;
   width: 15vw;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .generate-button {

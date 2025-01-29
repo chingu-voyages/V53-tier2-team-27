@@ -43,7 +43,32 @@ const WeekCalendar = () => {
 
   const secondRowDates = [weekDates[4], weekDates[5], weekDates[6]];
 
-  console.log(weekDates[0]);
+  console.log(firstRowDates);
+
+  const [dates, setDates] = useState();
+
+  const generateDates = () => {
+    const currentDate = new Date();
+    const dateArray = [];
+
+    for (let i = 0; i < 30; i++) {
+      const newDate = new Date(currentDate);
+      newDate.setDate(currentDate.getDate() + i);
+      dateArray.push({
+        id: i,
+        date: newDate.toISOString().split("T")[0],
+        dish: "testing", // will be changed to a randomly selected dish
+      });
+    }
+
+    setDates(dateArray);
+  };
+
+  const getDateObject = (date) => {
+    return dates.find((item) => item.date === date.toISOString().split("T")[0]);
+  };
+
+  console.log(dates);
 
   return (
     <div className="calender-container">
@@ -70,6 +95,7 @@ const WeekCalendar = () => {
                 {date === weekDates[3] ? <div>Wednesday</div> : null}
                 <div>{date.getDate()}</div>
               </div>
+              {!dates ? null : getDateObject(date).dish}
             </div>
           ))}
         </div>
@@ -82,9 +108,10 @@ const WeekCalendar = () => {
                 {date === weekDates[6] ? <div>Saturday</div> : null}
                 <div>{date.getDate()}</div>
               </div>
+              {!dates ? null : getDateObject(date).dish}
             </div>
           ))}
-          <div className="generate-div">
+          <div onClick={generateDates} className="generate-div">
             <h3 className="generate-button">Generate Menu</h3>
           </div>
         </div>
