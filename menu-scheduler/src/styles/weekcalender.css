@@ -41,34 +41,78 @@
 }
 
 .generate-div {
-  padding: 1.5vw;
-  background-color: #edeee8;
-  color: #2c363f;
+  background-color: #638530;
+  color: white;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
-  width: 15vw;
+  width: 18vw;
+  height: 22vh;
   border-radius: 50%;
+  border: 3px solid #638530;
   cursor: pointer;
 }
 
 .generate-button {
-  font-size: 1.5vw;
+  font-size: 2.5vw;
 }
 
 .day-container {
-  background-color: #edeee8;
+  background-color: white;
+  border: 3px solid #841933;
   border-radius: 16px;
-  color: #2c363f;
-  padding: 1.5vw;
-  width: 15vw;
-  height: 18vh;
+  width: 18vw;
+  height: 22vh;
 }
 
 .day-title {
   font-size: 1.5vw;
   display: flex;
-  align-items: start;
-  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+  background-color: #841933;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 18vw;
+  height: 4vh;
+}
+
+.day-title-weekday {
+  margin-left: 0.5vw;
+}
+
+.day-title-number {
+  margin-left: 1vw;
+}
+
+.selected-meal-name {
+  margin-top: 1vh;
+  font-size: 1.5vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+.selected-meal-ingredients {
+  margin-top: 1vh;
+  font-size: 1vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-style: italic;
+}
+.selected-meal-cal {
+  margin-top: 1vh;
+  font-size: 0.8vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-style: italic;
 }

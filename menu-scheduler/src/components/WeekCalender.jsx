@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import dishes from "../db/dishes";
 
 // Function to get the start of the week for a given date
 const getStartOfWeek = (date) => {
@@ -11,16 +12,18 @@ const getStartOfWeek = (date) => {
 // Function to generate an array of dates for the week
 const generateWeekDates = (startDate) => {
   const dates = [];
-  for (let i = 0; i < 7; i++) {
+  for (let i = 1; i < 8; i++) {
     const date = new Date(startDate);
     date.setDate(startDate.getDate() + i);
     dates.push(new Date(date));
   }
+  console.log(dates);
   return dates;
 };
 
 const WeekCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [dates, setDates] = useState();
 
   // Get the start of the week and the list of dates for the week
   const startOfWeek = getStartOfWeek(currentDate);
@@ -43,10 +46,15 @@ const WeekCalendar = () => {
 
   const secondRowDates = [weekDates[4], weekDates[5], weekDates[6]];
 
-  console.log(firstRowDates);
+  // Randomly selected meal from array of dishes
+  function getRandomItem(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+  }
 
-  const [dates, setDates] = useState();
+  const randomObject = getRandomItem(dishes);
 
+  // Generate meal plan function
   const generateDates = () => {
     const currentDate = new Date();
     const dateArray = [];
@@ -54,10 +62,13 @@ const WeekCalendar = () => {
     for (let i = 0; i < 30; i++) {
       const newDate = new Date(currentDate);
       newDate.setDate(currentDate.getDate() + i);
+      const item = getRandomItem(dishes);
       dateArray.push({
         id: i,
         date: newDate.toISOString().split("T")[0],
-        dish: "testing", // will be changed to a randomly selected dish
+        dishName: item.name,
+        dishIngredients: item.ingredients,
+        dishCal: item.calories,
       });
     }
 
@@ -89,13 +100,31 @@ const WeekCalendar = () => {
           {firstRowDates.map((date, index) => (
             <div key={index} className="day-container">
               <div className="day-title">
-                {date === weekDates[0] ? <div>Sunday</div> : null}
-                {date === weekDates[1] ? <div>Monday</div> : null}
-                {date === weekDates[2] ? <div>Tuesday</div> : null}
-                {date === weekDates[3] ? <div>Wednesday</div> : null}
-                <div>{date.getDate()}</div>
+                <div className="day-title-weekday">
+                  {date === weekDates[0] ? <div>Monday</div> : null}
+                  {date === weekDates[1] ? <div>Tuesday</div> : null}
+                  {date === weekDates[2] ? <div>Wednesday</div> : null}
+                  {date === weekDates[3] ? <div>Thursday</div> : null}
+                </div>
+                <div className="day-title-number">
+                  <div>{date.getDate()}</div>
+                </div>
               </div>
-              {!dates ? null : getDateObject(date).dish}
+              {!dates ? null : (
+                <>
+                  <div className="selected-meal-name">
+                    {!getDateObject(date) ? null : getDateObject(date).dishName}
+                  </div>
+                  <div className="selected-meal-ingredients">
+                    {!getDateObject(date)
+                      ? null
+                      : getDateObject(date).dishIngredients + " "}
+                  </div>
+                  <div className="selected-meal-cal">
+                    {!getDateObject(date) ? null : getDateObject(date).dishCal}
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>
@@ -103,12 +132,30 @@ const WeekCalendar = () => {
           {secondRowDates.map((date, index) => (
             <div key={index} className="day-container">
               <div className="day-title">
-                {date === weekDates[4] ? <div>Thursday</div> : null}
-                {date === weekDates[5] ? <div>Friday</div> : null}
-                {date === weekDates[6] ? <div>Saturday</div> : null}
-                <div>{date.getDate()}</div>
+                <div className="day-title-weekday">
+                  {date === weekDates[4] ? <div>Friday</div> : null}
+                  {date === weekDates[5] ? <div>Saturday</div> : null}
+                  {date === weekDates[6] ? <div>Sunday</div> : null}
+                </div>
+                <div className="day-title-number">
+                  <div>{date.getDate()}</div>
+                </div>
               </div>
-              {!dates ? null : getDateObject(date).dish}
+              {!dates ? null : (
+                <>
+                  <div className="selected-meal-name">
+                    {!getDateObject(date) ? null : getDateObject(date).dishName}
+                  </div>
+                  <div className="selected-meal-ingredients">
+                    {!getDateObject(date)
+                      ? null
+                      : getDateObject(date).dishIngredients + " "}
+                  </div>
+                  <div className="selected-meal-cal">
+                    {!getDateObject(date) ? null : getDateObject(date).dishCal}
+                  </div>
+                </>
+              )}
             </div>
           ))}
           <div onClick={generateDates} className="generate-div">
