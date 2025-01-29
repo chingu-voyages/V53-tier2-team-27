@@ -118,7 +118,7 @@ const WeekCalendar = () => {
                   <div className="selected-meal-ingredients">
                     {!getDateObject(date)
                       ? null
-                      : getDateObject(date).dishIngredients + " "}
+                      : getDateObject(date).dishIngredients.join(", ")}
                   </div>
                   <div className="selected-meal-cal">
                     {!getDateObject(date) ? null : getDateObject(date).dishCal}
@@ -149,7 +149,7 @@ const WeekCalendar = () => {
                   <div className="selected-meal-ingredients">
                     {!getDateObject(date)
                       ? null
-                      : getDateObject(date).dishIngredients + " "}
+                      : getDateObject(date).dishIngredients.join(", ")}
                   </div>
                   <div className="selected-meal-cal">
                     {!getDateObject(date) ? null : getDateObject(date).dishCal}
