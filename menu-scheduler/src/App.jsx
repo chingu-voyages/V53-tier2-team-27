@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Home from "./components/Home";
 import AllergyForm from "./components/Form/index";
+import FooterTeam from "./components/FooterTeam";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
     <>
       <Home />
       <AllergyForm />
+      <FooterTeam />
+
     </>
   );
 }
