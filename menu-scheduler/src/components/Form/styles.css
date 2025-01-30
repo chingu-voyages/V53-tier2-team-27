@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.checkbox-container {
+    column-count: 4;
+    column-gap: 20px;
+}
+
+.checkbox-container > div {
+    break-inside: avoid;
+    padding: 5px 0;
+}

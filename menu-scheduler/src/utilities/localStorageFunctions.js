@@ -74,7 +74,7 @@ function addEmployeeAllergies({ name, allergies }) {
 	}
 
 	//check to make sure all elements in array are valid strings
-	checkArrayValuesAreValidStrings(allergies);
+	arrayValuesAreValidStrings(allergies);
 
 	const storedEmployeeAllergies = localStorage.getItem('employeeAllergies');
 
@@ -112,7 +112,7 @@ function addAllergiesOnly(allergies) {
 	}
 
 	// Verify that all elements in the allergies array are valid strings.
-	checkArrayValuesAreValidStrings(allergies);
+	arrayValuesAreValidStrings(allergies);
 
 	// Retrieve the existing list of allergies from localStorage, if available.
 	// The data is stored under the key 'employeeAllergies'.
@@ -186,7 +186,7 @@ function updateEmployeeAllergies({ id, allergies }) {
 	if (!Array.isArray(allergies)) {
 		throw new Error('Invalid input: allergies must be an array');
 	}
-	checkArrayValuesAreValidStrings(allergies);
+	arrayValuesAreValidStrings(allergies);
 
 	// Retrieve stored employee data
 	const storedEmployeeAllergies = localStorage.getItem('employeeAllergies');
@@ -212,4 +212,4 @@ function updateEmployeeAllergies({ id, allergies }) {
 	localStorage.setItem('employeeAllergies', JSON.stringify(parsedEmployeeInfo));
 }
 
-export { checkArrayValuesAreValidStrings, addEmployeeAllergies, arrayValuesAreValidStrings, stringLengthsAreValid, addAllergiesOnly, deleteSelectedEmployee, updateEmployeeAllergies };
+export { arrayValuesAreValidStrings, addEmployeeAllergies, stringLengthsAreValid, addAllergiesOnly, deleteSelectedEmployee, updateEmployeeAllergies };

@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import allIngredients from '../../db/ingredients';
+import { addAllergiesOnly } from '../../utilities/localStorageFunctions';
+import './styles.css';
 
-function AllergyForm() {
-    const [checkedState, setCheckedState] = useState(
-        new Array(allIngredients.length).fill(false)
-    );
+function AllergyForm({ setIsOpen }) {
+    const [checkedState, setCheckedState] = useState(() => {
+        const savedState = localStorage.getItem('checkedState');
+        return savedState ? JSON.parse(savedState) : new Array(allIngredients.length).fill(false);
+    });
 
     const handleOnChange = (position) => {
         const updatedCheckedState = checkedState.map((item, index) =>
@@ -12,6 +15,7 @@ function AllergyForm() {
         );
 
         setCheckedState(updatedCheckedState);
+        localStorage.setItem('checkedState', JSON.stringify(updatedCheckedState));
     };
 
     const handleSubmit = (e) => {
@@ -25,14 +29,23 @@ function AllergyForm() {
             });
         }
         console.log(allergies);
+        addAllergiesOnly(allergies);
         setCheckedState(new Array(allIngredients.length).fill(false));
+        setIsOpen(false);
     };
+
+    const handleClear = (e) => {
+        e.preventDefault();
+        setCheckedState(new Array(allIngredients.length).fill(false));
+        localStorage.removeItem('checkedState');
+    }
 
     return (
         <div className="form">
-            <h1>Input Allergy</h1>
+            {/* <h1>Input Allergy</h1> */}
             <form onSubmit={handleSubmit}>
-                {allIngredients.map((ingredient, index) => (
+                <div className="checkbox-container">
+                {allIngredients.sort().map((ingredient, index) => (
                     <div key={index}>
                         <input
                             type="checkbox"
@@ -45,7 +58,9 @@ function AllergyForm() {
                         <label htmlFor={index}>{ingredient}</label>
                     </div>
                 ))}
+                </div>
                 <button type="submit">Submit</button>
+                <button type="button" onClick={handleClear}>Clear</button>
             </form>
         </div>
     )
