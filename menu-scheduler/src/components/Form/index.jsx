@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import allIngredients from '../../db/ingredients';
-import { addAllergiesOnly } from '../../utilities/localStorageFunctions';
+import { addAllergiesOnly, readLocalStorage } from '../../utilities/localStorageFunctions';
 import './styles.css';
 
-function AllergyForm({ setIsOpen }) {
+import allergyKey from '../../db/keys';
+
+
+function AllergyForm({ setIsOpen, key }) {
     const [checkedState, setCheckedState] = useState(() => {
         const savedState = localStorage.getItem('checkedState');
         return savedState ? JSON.parse(savedState) : new Array(allIngredients.length).fill(false);
@@ -29,9 +32,11 @@ function AllergyForm({ setIsOpen }) {
             });
         }
         console.log(allergies);
-        addAllergiesOnly(allergies);
+        addAllergiesOnly(allergyKey, allergies);
         setCheckedState(new Array(allIngredients.length).fill(false));
         setIsOpen(false);
+
+        console.log(readLocalStorage(allergyKey))
     };
 
     const handleClear = (e) => {
