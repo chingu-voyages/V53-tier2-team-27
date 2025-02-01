@@ -7,25 +7,44 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 5vh;
+  width: 78vw;
+  margin-left: 1.5vw;
   margin-bottom: 2vh;
   font-size: 1vw;
 }
 
+.week-display {
+  font-size: 1.5vw;
+  margin-left: 1vw;
+}
+
+.week-change-div {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.jump-to-this-week {
+  padding: 0.5vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+
 .prev-week-button {
-  width: 10vw;
+  width: 3vw;
+  height: 1vh;
   padding: 0.7vw;
-  background-color: white;
-  border: 1px solid #841933;
-  border-radius: 10px;
   cursor: pointer;
 }
 
 .next-week-button {
-  width: 10vw;
+  width: 3vw;
+  height: 1vh;
   padding: 0.7vw;
-  background-color: white;
-  border: 1px solid #841933;
-  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -80,11 +99,13 @@
 }
 
 .day-title-weekday {
-  margin-left: 0.5vw;
+  width: 12vw;
+  text-align: center;
 }
 
 .day-title-number {
-  margin-left: 1vw;
+  width: 2vw;
+  margin-left: 0.8vw;
 }
 
 .selected-meal-name {
@@ -115,4 +136,20 @@
   text-align: center;
   justify-content: center;
   font-style: italic;
+}
+
+.date-range-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: end;
+  margin-top: 1vh;
+}
+
+.start-date-div {
+  margin-right: 2vw;
+}
+
+.end-date-div {
+  margin-right: 3vw;
 }
