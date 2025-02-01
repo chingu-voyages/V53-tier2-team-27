@@ -2,29 +2,29 @@
     padding: 20px;
     background-color: #f9f9f9;
     border-top: 2px solid #ddd;
+    text-align: center;
 }
 
 .footer-title {
-    text-align: center;
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: #333;
 }
 
+
 .team-list {
     list-style: none;
     padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
     gap: 15px;
+    max-width: 700px;
 }
 
 .team-member {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    /* La segunda columna ocupa el espacio restante */
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 15px;
@@ -32,8 +32,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
+    text-align: left;
 }
 
 .member-name {
@@ -42,25 +41,34 @@
     text-align: left;
 }
 
+
 .icons {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
-    /* Alinea los íconos al final de la fila */
+    align-items: center;
 }
 
 .icon-link {
     display: flex;
     align-items: center;
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(99, 133, 48, 1);
+    border-radius: 50%;
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.icon:hover {
+
+.icon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+
+}
+
+.icon-link:hover {
     transform: scale(1.2);
     opacity: 0.8;
 }
