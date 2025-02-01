@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100%;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.img {
+    width: 100px;
+    height: auto;
+}
+
+.btn {
+    padding: 8px 15px;
+    background: rgba(237, 238, 232, 1);
+
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: black;
+    color: rgba(237, 238, 232, 1);
+}
