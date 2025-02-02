@@ -1,9 +1,61 @@
 .form {
     display: flex;
-    flex-direction: row;
-    /* align-items: center; */
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-top: 20px;
+    font-family: Lato, sans-serif;
+    background-color: #EDEEE8;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #841933
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.clear-btn {
+    background-color: #EDEEE8;
+    color: #2C363F;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    background-color: #2C363F;
+    color: #EDEEE8;
+}
+
+.save-btn {
+    background-color: #638530;
+    color: #EDEEE8;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: #2C363F;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .checkbox-container {
@@ -14,4 +66,38 @@
 .checkbox-container > div {
     break-inside: avoid;
     padding: 5px 0;
+}
+
+/* This is the styling for the checkboxes */
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #DD7135;
+    border-radius: 4px;
+    background-color: #EDEEE8;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #EDEEE8;
+    border-color: #DD7135
+}
+
+input[type="checkbox"]::after {
+    content: "✔";
+    font-size: 12px;
+    color: #DD7135;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+input[type="checkbox"]:checked::after {
+    display: block;
 }
