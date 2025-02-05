@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { filterRecipes } from "../utilities/localStorageFunctions";
 import dishes from "../db/dishes";
 
 // Function to get the start of the week for a given date
@@ -25,9 +26,30 @@ const generateWeekDates = (startDate) => {
 
 const WeekCalendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [dates, setDates] = useState();
+  const [dates, setDates] = useState([]);
   const [startDate, setStartDate] = useState(currentDate);
   const [endDate, setEndDate] = useState(null);
+  const [allergies, setAllergies] = useState([]);
+
+  // Load data from localStorage when the component mounts
+  useEffect(() => {
+    const savedMenu = localStorage.getItem("menu");
+    if (savedMenu) {
+      setDates(JSON.parse(savedMenu)); // Parse and set the saved items
+    }
+  }, []);
+
+  // const savedAllergies = localStorage.getItem("allergies");
+  // if (savedAllergies) {
+  //   setAllergies(JSON.parse(savedAllergies)); // Parse and set the saved items
+  // }
+
+  // Save data to localStorage whenever the items array changes
+  useEffect(() => {
+    if (dates.length > 0) {
+      localStorage.setItem("menu", JSON.stringify(dates)); // Convert the array to a string and store
+    }
+  }, [dates]);
 
   // Get the start of the week and the list of dates for the week
   const startOfWeek = getStartOfWeek(currentDate);
@@ -50,7 +72,7 @@ const WeekCalendar = () => {
 
   const secondRowDates = [weekDates[4], weekDates[5], weekDates[6]];
 
-  // Randomly selected meal from array
+  // Randomly selected meal from array prop
   function getRandomItem(arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
     return arr[randomIndex];
@@ -113,7 +135,6 @@ const WeekCalendar = () => {
 
   console.log(startDate);
   console.log(endDate);
-
   console.log(dates);
 
   // Get the month for the week selector display
