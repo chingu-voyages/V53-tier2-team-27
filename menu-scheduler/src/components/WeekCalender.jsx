@@ -263,24 +263,32 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
               )}
             </div>
           ))}
-          <div onClick={generateDates} className="generate-div">
-            <h3 className="generate-button">Generate Menu</h3>
+          <div className="generate-container">
+            <div className="date-range-container">
+              <div className="start-date-div">
+                <p className="start-date">Start Date</p>
+                <input
+                  className="date-input"
+                  type="date"
+                  min={currentDate}
+                  value={startDate}
+                  onChange={handleStartDate}
+                />
+              </div>
+              <div className="end-date-div">
+                <p className="end-date">End Date</p>
+                <input
+                  className="date-input"
+                  type="date"
+                  min={startDate}
+                  onChange={handleEndDate}
+                />
+              </div>
+            </div>
+            <div onClick={generateDates} className="generate-div">
+              <h3 className="generate-button">Generate Menu</h3>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="date-range-container">
-        <div className="start-date-div">
-          <p>Start Date</p>
-          <input
-            type="date"
-            min={currentDate}
-            value={startDate}
-            onChange={handleStartDate}
-          />
-        </div>
-        <div className="end-date-div">
-          <p>End Date</p>
-          <input type="date" min={startDate} onChange={handleEndDate} />
         </div>
       </div>
     </div>
