@@ -4,20 +4,29 @@
 }
 
 .week-select-container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 5vh;
-	width: 78vw;
-	margin-left: 1.5vw;
-	margin-bottom: 2vh;
-	margin-top: 2vh;
-	font-size: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  width: 78vw;
+  margin-left: 1.5vw;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  font-size: 1vw;
 }
 
 .week-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   font-size: 1.5vw;
   margin-left: 1vw;
+}
+
+.date-picker {
+  margin-left: 0.5vw;
 }
 
 .week-change-div {
@@ -532,5 +541,5 @@
 }
 
 .meal-id {
-	display: none;
+  display: none;
 }
