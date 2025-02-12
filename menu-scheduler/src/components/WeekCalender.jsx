@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import {
-  readLocalStorage,
   filterRecipes,
 } from "../utilities/localStorageFunctions";
-import ToggleSwitch from "./Toggle";
-import allergyKey from "../db/keys";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
 // Function to get the start of the week for a given date
