@@ -3,10 +3,8 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {
-  readLocalStorage,
   filterRecipes,
 } from "../utilities/localStorageFunctions";
-import allergyKey from "../db/keys";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
 
@@ -26,7 +24,6 @@ const generateWeekDates = (startDate) => {
     date.setDate(startDate.getDate() + i);
     dates.push(new Date(date));
   }
-  console.log(dates);
   return dates;
 };
 
@@ -35,6 +32,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
   const [dates, setDates] = useState([]);
   const [startDate, setStartDate] = useState(currentDate);
   const [endDate, setEndDate] = useState(null);
+  const [daysOff, setDaysOff] = useState([]);
 
   const filteredDishes = filterRecipes(allergies, dishes);
 
@@ -53,11 +51,11 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     if (dates.length > 0) {
       localStorage.setItem("menu", JSON.stringify(dates)); // Convert the array to a string and store
     }
-  }, [dates]);
+  }, [dates, daysOff, currentDate]);
 
   // Get the start of the week and the list of dates for the week
   const startOfWeek = getStartOfWeek(currentDate);
-  const weekDates = generateWeekDates(startOfWeek);
+  const weekDates = generateWeekDates(startOfWeek, setDates);
 
   const handlePrevWeek = () => {
     setCurrentDate(new Date(startOfWeek.setDate(startOfWeek.getDate() - 7)));
@@ -83,43 +81,80 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
   }
 
   // Generate meal plan function
-  const generateDates = () => {
+  const generateMenu = () => {
     const currentDate = new Date(startDate);
     const dateArray = [];
     const start = new Date(startDate);
     const end = new Date(endDate);
     const timeDifference = end - start; // time difference in milliseconds
     const days = timeDifference / (1000 * 3600 * 24); // convert milliseconds to days
+    let stache = [];
+    let counter = 0; // Counter declared outside the loop
 
     if (Number.isInteger(days)) {
-      for (let i = 0; i < days + 1; i++) {
-        const newDate = new Date(currentDate);
-        newDate.setDate(currentDate.getDate() + i);
-        const item = getRandomItem(filteredDishes);
-        dateArray.push({
-          id: i,
-          date: newDate.toISOString().split("T")[0],
-          dishName: item.name,
-          dishIngredients: item.ingredients,
-          dishCal: item.calories,
-          dayOff: false,
-        });
-      }
+        for (let i = 0; i < days + 1; i++) {
+            const newDate = new Date(currentDate);
+            newDate.setDate(currentDate.getDate() + i);
+
+            let item = getRandomItem(filteredDishes);
+
+            if (filteredDishes.length > 7) {
+                let attempts = 0;
+                while (stache.includes(item.name) && attempts < filteredDishes.length) {
+                    item = getRandomItem(filteredDishes);
+                    attempts++;
+                }
+            }
+
+            stache.push(item.name);
+            dateArray.push({
+                id: i,
+                date: newDate.toISOString().split("T")[0],
+                dishName: item.name,
+                dishIngredients: item.ingredients,
+                dishCal: item.calories,
+                dayOff: false,
+            });
+
+            counter++;
+
+            if (counter === 7) {
+                counter = 0;
+                stache = [];
+            }
+        }
     } else {
-      for (let i = 0; i < 90; i++) {
-        // if start and end dates are not selected, calculate for 90 days
-        const newDate = new Date(currentDate);
-        newDate.setDate(currentDate.getDate() + i);
-        const item = getRandomItem(filteredDishes);
-        dateArray.push({
-          id: i,
-          date: newDate.toISOString().split("T")[0],
-          dishName: item.name,
-          dishIngredients: item.ingredients,
-          dishCal: item.calories,
-          dayOff: false,
-        });
-      }
+        for (let i = 0; i < 90; i++) {
+            const newDate = new Date(currentDate);
+            newDate.setDate(currentDate.getDate() + i);
+
+            let item = getRandomItem(filteredDishes);
+
+            if (filteredDishes.length > 7) {
+                let attempts = 0;
+                while (stache.includes(item.name) && attempts < filteredDishes.length) {
+                    item = getRandomItem(filteredDishes);
+                    attempts++;
+                }
+            }
+
+            stache.push(item.name);
+            dateArray.push({
+                id: i,
+                date: newDate.toISOString().split("T")[0],
+                dishName: item.name,
+                dishIngredients: item.ingredients,
+                dishCal: item.calories,
+                dayOff: false,
+            });
+
+            counter++;
+
+            if (counter === 7) {
+                counter = 0;
+                stache = [];
+            }
+        }
     }
     setMenu(dateArray);
     setDates(dateArray);
@@ -139,8 +174,8 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     setEndDate(e.target.value);
   };
 
-  console.log(dates);
-  console.log(filteredDishes);
+  // console.log(dates);
+  // console.log(filteredDishes);
 
   // Get the month for the week selector display
   const getMonth = () => {
@@ -171,10 +206,11 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     }
   };
 
+
   const handleCurrentDate = (event) => {
     setCurrentDate(event.target.value);
   };
-
+  
   return (
     <div className="calender-container">
       <div className="week-select-container">
@@ -217,7 +253,12 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
       <div className="week-container">
         <div className="first-row-dates">
           {firstRowDates.map((date, index) => (
-            <div key={index} className="day-container">
+            <div
+              key={index}
+              className={`day-container ${
+                daysOff.includes(date.toISOString()) ? "day-off" : ""
+              }`}
+            >
               <div className="day-title">
                 <div className="day-title-number">
                   <div>{date.getDate()}</div>
@@ -230,31 +271,25 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                 </div>
                 {/* day off button */}
                 <div className="closed-button">
-                  <span className="meal-id">
-                    {!getDateObject(date) ? null : getDateObject(date).id}
-                  </span>
                   <button
+                    className="toggle-button"
+                    aria-pressed="false"
+                    id={date.toISOString()}
                     onClick={(event) =>
-                      toggleDayOff(event, menu, dates, setDates)
+                      toggleDayOff(event, date, daysOff, setDaysOff)
                     }
                   >
-                    Closed
+                    {daysOff.includes(date.toISOString()) ? "Open" : "Closed"}
                   </button>
                 </div>
               </div>
               {!dates ? null : (
                 <>
-                  {getDateObject(date)?.dayOff ? (
-                    <div
-                      className="selected-meal-name"
-                      data-meal-id={getDateObject(date)?.id}
-                    ></div> // Return an empty string if dayOff is true
+                  {daysOff.includes(date.toISOString()) ? (
+                    <div className="selected-meal-name"></div> // Return an empty string if dayOff is true
                   ) : (
                     <>
-                      <div
-                        className="selected-meal-name"
-                        data-meal-id={getDateObject(date)?.id}
-                      >
+                      <div className="selected-meal-name">
                         {getDateObject(date)?.dishName}
                       </div>
                       <div className="selected-meal-ingredients">
@@ -272,7 +307,12 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
         </div>
         <div className="second-row-dates">
           {secondRowDates.map((date, index) => (
-            <div key={index} className="day-container">
+            <div
+              key={index}
+              className={`day-container ${
+                daysOff.includes(date.toISOString()) ? "day-off" : ""
+              }`}
+            >
               <div className="day-title">
                 <div className="day-title-number">
                   <div>{date.getDate()}</div>
@@ -283,31 +323,25 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                   {date === weekDates[6] ? <div>Sunday</div> : null}
                 </div>
                 <div className="closed-button">
-                  <span className="meal-id">
-                    {!getDateObject(date) ? null : getDateObject(date).id}
-                  </span>
                   <button
+                    className="toggle-button"
+                    aria-pressed="false"
+                    id={date.toISOString()}
                     onClick={(event) =>
-                      toggleDayOff(event, menu, dates, setDates)
+                      toggleDayOff(event, date, daysOff, setDaysOff)
                     }
                   >
-                    Closed
+                    {daysOff.includes(date.toISOString()) ? "Open" : "Closed"}
                   </button>
                 </div>
               </div>
               {!dates ? null : (
                 <>
-                  {getDateObject(date)?.dayOff ? (
-                    <div
-                      className="selected-meal-name"
-                      data-meal-id={getDateObject(date)?.id}
-                    ></div> // Return an empty string if dayOff is true
+                  {daysOff.includes(date.toISOString()) ? (
+                    <div className="selected-meal-name"></div> // Return an empty string if dayOff is true
                   ) : (
                     <>
-                      <div
-                        className="selected-meal-name"
-                        data-meal-id={getDateObject(date)?.id}
-                      >
+                      <div className="selected-meal-name">
                         {getDateObject(date)?.dishName}
                       </div>
                       <div className="selected-meal-ingredients">
@@ -344,7 +378,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                 />
               </div>
             </div>
-            <div onClick={generateDates} className="generate-div">
+            <div onClick={generateMenu} className="generate-div">
               <h3 className="generate-button">Generate Menu</h3>
             </div>
           </div>

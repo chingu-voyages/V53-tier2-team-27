@@ -6,6 +6,7 @@
     margin-top: 20px;
     font-family: Lato, sans-serif;
     background-color: #EDEEE8;
+    z-index: 100;
 }
 
 .header {
@@ -100,4 +101,12 @@ input[type="checkbox"]::after {
 
 input[type="checkbox"]:checked::after {
     display: block;
+}
+
+/* media queries for mobile responsiveness */
+
+@media screen and (max-width: 768px) {
+    .checkbox-container {
+        column-count: 2;
+    }
 }

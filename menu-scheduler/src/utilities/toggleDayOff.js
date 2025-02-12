@@ -1,22 +1,24 @@
-function toggleDayOff(e, menu, dates, setDates) {
-	const dayContainer = e.target.closest('.day-container');
-	const mealId = dayContainer?.querySelector('.selected-meal-name')?.dataset
-		.mealId;
+function toggleDayOff(e, date, daysOff, setDaysOff) {
+	const dayStatus = e.target; // Get the actual element
+	let dayStatusText = e.target.textContent;
+	let buttonDate = e.target.id;
 
-	if (!mealId) return; // Ensure mealId exists before proceeding
+	const isPressed = e.target.getAttribute('aria-pressed') === 'true'
+	e.target.setAttribute('aria-pressed', !isPressed);
+	console.log(e.target.getAttribute('aria-pressed'));
 
-	// Create a new array with updated dayOff values
-	const updatedDates = dates.map((date) =>
-		date.id === Number(mealId) ? { ...date, dayOff: !date.dayOff } : date
-	);
+	const parsedDate = date.toISOString();
 
-	// Update state with new array
-	setDates(updatedDates);
+	console.log(buttonDate);
+	console.log(parsedDate);
+	if (dayStatusText === 'Closed' && buttonDate === parsedDate) {
+		// dayStatus.textContent = 'Open';
+		setDaysOff((prev) => [...prev, parsedDate]);
+	} else if (buttonDate === parsedDate) {
+		// dayStatus.textContent = 'Closed';
 
-	// Toggle the CSS class
-	if (dayContainer) {
-		dayContainer.classList.toggle('day-off');
+		let filteredDates = daysOff.filter((prevDate) => prevDate !== parsedDate);
+		setDaysOff(filteredDates);
 	}
-	console.log(updatedDates);
 }
 export default toggleDayOff;
