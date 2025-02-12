@@ -419,9 +419,11 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
           </div>
         </div>
       </div>
-      <button onClick={downloadPDF} className="download-PDF-button">
-        Download PDF
-      </button>
+      <div className="download-PDF-container">
+        <button onClick={downloadPDF} className="download-PDF-button">
+          Download PDF
+        </button>
+      </div>
     </div>
   );
 };
