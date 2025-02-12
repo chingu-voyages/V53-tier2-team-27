@@ -171,6 +171,46 @@
 	background-color: #841933;
 }
 
+/* Toggle button styling */
+
+.toggle-button {
+	position: relative;
+	width: 54px;
+	height: 26px;
+	background-color: #edeee8;
+	border: none;
+	border-radius: 34px;
+	cursor: pointer;
+	outline: none;
+	z-index: 10;
+	transition: background-color 0.4s;
+}
+
+.toggle-button::before {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 2px;
+	bottom: 1.5px;
+	background-color: #841933;
+	border-radius: 50%;
+	z-index: 10;
+	transition: transform 0.4s;
+}
+
+.toggle-button[aria-pressed="true"] {
+	background-color: #841933;
+	border: 2px solid #edeee8;
+}
+
+.toggle-button[aria-pressed="true"]::before {
+	background-color: #EDEEE8;
+	transform: translateX(26px);
+}
+
+/* Media queries start here */
+
 @media only screen and (max-width: 1350px) {
 	.day-container {
 		background-color: white;
