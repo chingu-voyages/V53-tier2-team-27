@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import {
-  filterRecipes,
-} from "../utilities/localStorageFunctions";
+import { filterRecipes } from "../utilities/localStorageFunctions";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
 import { jsPDF } from "jspdf";
@@ -128,36 +126,38 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
         }
       }
     } else {
-        for (let i = 0; i < 90; i++) {
-            const newDate = new Date(currentDate);
-            newDate.setDate(currentDate.getDate() + i);
+      for (let i = 0; i < 90; i++) {
+        const newDate = new Date(currentDate);
+        newDate.setDate(currentDate.getDate() + i);
 
-            let item = getRandomItem(filteredDishes);
+        let item = getRandomItem(filteredDishes);
 
-            if (filteredDishes.length > 7) {
-                let attempts = 0;
-                while (stache.includes(item.name) && attempts < filteredDishes.length) {
-                    item = getRandomItem(filteredDishes);
-                    attempts++;
-                }
-            }
+        if (filteredDishes.length > 7) {
+          let attempts = 0;
+          while (
+            stache.includes(item.name) &&
+            attempts < filteredDishes.length
+          ) {
+            item = getRandomItem(filteredDishes);
+            attempts++;
+          }
+        }
 
-            stache.push(item.name);
-            dateArray.push({
-                id: i,
-                date: newDate.toISOString().split("T")[0],
-                dishName: item.name,
-                dishIngredients: item.ingredients,
-                dishCal: item.calories,
-                dayOff: false,
-            });
+        stache.push(item.name);
+        dateArray.push({
+          id: i,
+          date: newDate.toISOString().split("T")[0],
+          dishName: item.name,
+          dishIngredients: item.ingredients,
+          dishCal: item.calories,
+          dayOff: false,
+        });
 
-            counter++;
+        counter++;
 
-            if (counter === 7) {
-                counter = 0;
-                stache = [];
-            }
+        if (counter === 7) {
+          counter = 0;
+          stache = [];
         }
       }
     }
@@ -245,7 +245,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
   const handleCurrentDate = (event) => {
     setCurrentDate(event.target.value);
   };
- 
+
   return (
     <div className="calender-container">
       <div className="week-select-container">
