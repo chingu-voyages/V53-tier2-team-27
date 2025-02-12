@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {
-  readLocalStorage,
   filterRecipes,
 } from "../utilities/localStorageFunctions";
-import allergyKey from "../db/keys";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
 import { jsPDF } from "jspdf";
+
 // Function to get the start of the week for a given date
 const getStartOfWeek = (date) => {
   const startDate = new Date(date);
@@ -25,7 +25,6 @@ const generateWeekDates = (startDate) => {
     date.setDate(startDate.getDate() + i);
     dates.push(new Date(date));
   }
-  // console.log(dates);
   return dates;
 };
 
@@ -129,38 +128,36 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
         }
       }
     } else {
-      for (let i = 0; i < 30; i++) {
-        const newDate = new Date(currentDate);
-        newDate.setDate(currentDate.getDate() + i);
+        for (let i = 0; i < 90; i++) {
+            const newDate = new Date(currentDate);
+            newDate.setDate(currentDate.getDate() + i);
 
-        let item = getRandomItem(filteredDishes);
+            let item = getRandomItem(filteredDishes);
 
-        if (filteredDishes.length > 7) {
-          let attempts = 0;
-          while (
-            stache.includes(item.name) &&
-            attempts < filteredDishes.length
-          ) {
-            item = getRandomItem(filteredDishes);
-            attempts++;
-          }
-        }
+            if (filteredDishes.length > 7) {
+                let attempts = 0;
+                while (stache.includes(item.name) && attempts < filteredDishes.length) {
+                    item = getRandomItem(filteredDishes);
+                    attempts++;
+                }
+            }
 
-        stache.push(item.name);
-        dateArray.push({
-          id: i,
-          date: newDate.toISOString().split("T")[0],
-          dishName: item.name,
-          dishIngredients: item.ingredients,
-          dishCal: item.calories,
-          dayOff: false,
-        });
+            stache.push(item.name);
+            dateArray.push({
+                id: i,
+                date: newDate.toISOString().split("T")[0],
+                dishName: item.name,
+                dishIngredients: item.ingredients,
+                dishCal: item.calories,
+                dayOff: false,
+            });
 
-        counter++;
+            counter++;
 
-        if (counter === 7) {
-          counter = 0;
-          stache = [];
+            if (counter === 7) {
+                counter = 0;
+                stache = [];
+            }
         }
       }
     }
@@ -245,6 +242,10 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     doc.save("menu_schedule.pdf");
   };
 
+  const handleCurrentDate = (event) => {
+    setCurrentDate(event.target.value);
+  };
+ 
   return (
     <div className="calender-container">
       <div className="week-select-container">
@@ -252,6 +253,17 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
           <span>
             {getMonth() + " " + weekDates[0].getDate()} -{" "}
             {weekDates[6].getDate()}
+            <div className="jump-week-selecor-container">
+              <KeyboardArrowDownIcon
+                className="date-picker"
+                style={{ fontSize: "34px" }}
+              />
+              <input
+                type="date"
+                className="jump-week-selector"
+                onChange={handleCurrentDate}
+              ></input>
+            </div>
           </span>
         </div>
         <div className="week-change-div">
@@ -295,6 +307,8 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                 {/* day off button */}
                 <div className="closed-button">
                   <button
+                    className="toggle-button"
+                    aria-pressed="false"
                     id={date.toISOString()}
                     onClick={(event) =>
                       toggleDayOff(event, date, daysOff, setDaysOff)
@@ -345,6 +359,8 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                 </div>
                 <div className="closed-button">
                   <button
+                    className="toggle-button"
+                    aria-pressed="false"
                     id={date.toISOString()}
                     onClick={(event) =>
                       toggleDayOff(event, date, daysOff, setDaysOff)

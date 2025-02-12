@@ -16,8 +16,31 @@
 }
 
 .week-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   font-size: 1.5vw;
   margin-left: 1vw;
+}
+
+.jump-week-selector-container {
+  position: relative;
+  margin-left: 0.5vw;
+  width: 17px;
+}
+.jump-week-selector {
+  position: absolute;
+  width: 17px;
+  margin-top: -10px;
+  margin-left: 0.4vw;
+  opacity: 0;
+}
+
+.date-picker {
+  position: absolute;
+  margin-top: -16px;
 }
 
 .week-change-div {
@@ -173,6 +196,46 @@
 
 .download-PDF-button {
 }
+
+/* Toggle button styling */
+
+.toggle-button {
+	position: relative;
+	width: 54px;
+	height: 26px;
+	background-color: #edeee8;
+	border: none;
+	border-radius: 34px;
+	cursor: pointer;
+	outline: none;
+	z-index: 10;
+	transition: background-color 0.4s;
+}
+
+.toggle-button::before {
+	content: '';
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 2px;
+	bottom: 1.5px;
+	background-color: #841933;
+	border-radius: 50%;
+	z-index: 10;
+	transition: transform 0.4s;
+}
+
+.toggle-button[aria-pressed="true"] {
+	background-color: #841933;
+	border: 2px solid #edeee8;
+}
+
+.toggle-button[aria-pressed="true"]::before {
+	background-color: #EDEEE8;
+	transform: translateX(26px);
+}
+
+/* Media queries start here */
 
 @media only screen and (max-width: 1350px) {
   .day-container {
@@ -389,9 +452,22 @@
 }
 
 @media only screen and (max-width: 550px) {
+  .week-select-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 78vw;
+    margin-left: 1.5vw;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    font-size: 1vw;
+  }
   .week-display {
-    font-size: 4vw;
-    margin-left: 1vw;
+    font-size: 6vw;
+  }
+  .week-change-div {
+    display: none;
   }
   .jump-to-this-week {
     padding: 0.5vw;
@@ -416,7 +492,7 @@
     border: 3px solid #841933;
     border-radius: 16px;
     width: 80vw;
-    height: 30vh;
+    height: 25vh;
     margin-bottom: 2vh;
   }
   .generate-container {
@@ -426,7 +502,7 @@
     text-align: center;
     justify-content: center;
     width: 80vw;
-    height: 30vh;
+    height: 25vh;
   }
   .generate-div {
     background-color: #638530;
@@ -540,10 +616,10 @@
   .end-date-div {
     margin-right: 0vw;
   }
-
+  
   .day-off {
-    background-color: #841933;
-  }
+		background-color: #841933;
+	}
 }
 
 .meal-id {
