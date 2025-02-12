@@ -106,8 +106,8 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
         });
       }
     } else {
-      for (let i = 0; i < 30; i++) {
-        // if start and end dates are not selected, calculate for 30 days
+      for (let i = 0; i < 90; i++) {
+        // if start and end dates are not selected, calculate for 90 days
         const newDate = new Date(currentDate);
         newDate.setDate(currentDate.getDate() + i);
         const item = getRandomItem(filteredDishes);
@@ -171,6 +171,10 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     }
   };
 
+  const handleCurrentDate = (event) => {
+    setCurrentDate(event.target.value);
+  };
+
   return (
     <div className="calender-container">
       <div className="week-select-container">
@@ -178,8 +182,18 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
           <span>
             {getMonth() + " " + weekDates[0].getDate()} -{" "}
             {weekDates[6].getDate()}
+            <div className="jump-week-selecor-container">
+              <KeyboardArrowDownIcon
+                className="date-picker"
+                style={{ fontSize: "34px" }}
+              />
+              <input
+                type="date"
+                className="jump-week-selector"
+                onChange={handleCurrentDate}
+              ></input>
+            </div>
           </span>
-          <KeyboardArrowDownIcon type="date" className="date-picker" />
         </div>
         <div className="week-change-div">
           <ArrowBackIosNewIcon
