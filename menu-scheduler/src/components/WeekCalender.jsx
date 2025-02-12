@@ -5,6 +5,7 @@ import {
   readLocalStorage,
   filterRecipes,
 } from "../utilities/localStorageFunctions";
+import ToggleSwitch from "./Toggle";
 import allergyKey from "../db/keys";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
@@ -205,15 +206,13 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                   <div>{date.getDate()}</div>
                 </div>
                 <div className="day-title-weekday">
-                  {date === weekDates[0] ? <div>Monday</div> : null}
-                  {date === weekDates[1] ? <div>Tuesday</div> : null}
-                  {date === weekDates[2] ? <div>Wednesday</div> : null}
-                  {date === weekDates[3] ? <div>Thursday</div> : null}
+                  {date === weekDates[0] ? <div><ToggleSwitch label="Monday"/></div> : null}
+                  {date === weekDates[1] ? <div><ToggleSwitch label="Tuesday"/></div> : null}
+                  {date === weekDates[2] ? <div><ToggleSwitch label="Wednesday"/></div> : null}
+                  {date === weekDates[3] ? <div><ToggleSwitch label="Thursday"/></div> : null}
                 </div>
                 {/* day off button */}
-                <div>
-                  <button onClick={toggleDayOff}>Closed</button>
-                </div>
+                
               </div>
               {!dates ? null : (
                 <>
