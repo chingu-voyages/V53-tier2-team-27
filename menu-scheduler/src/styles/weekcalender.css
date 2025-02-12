@@ -1,3 +1,7 @@
+:root {
+	font-family: Lato, sans-serif;
+}
+
 .week-container {
 	display: flex;
 	flex-direction: column;

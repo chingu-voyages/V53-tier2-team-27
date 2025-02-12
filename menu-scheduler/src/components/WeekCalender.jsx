@@ -5,7 +5,6 @@ import {
   readLocalStorage,
   filterRecipes,
 } from "../utilities/localStorageFunctions";
-import ToggleSwitch from "./Toggle";
 import allergyKey from "../db/keys";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
