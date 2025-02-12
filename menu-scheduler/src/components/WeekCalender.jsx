@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {
   filterRecipes,
 } from "../utilities/localStorageFunctions";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
+
 // Function to get the start of the week for a given date
 const getStartOfWeek = (date) => {
   const startDate = new Date(date);
@@ -22,7 +24,6 @@ const generateWeekDates = (startDate) => {
     date.setDate(startDate.getDate() + i);
     dates.push(new Date(date));
   }
-  // console.log(dates);
   return dates;
 };
 
@@ -123,7 +124,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
             }
         }
     } else {
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 90; i++) {
             const newDate = new Date(currentDate);
             newDate.setDate(currentDate.getDate() + i);
 
@@ -205,6 +206,11 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     }
   };
 
+
+  const handleCurrentDate = (event) => {
+    setCurrentDate(event.target.value);
+  };
+  
   return (
     <div className="calender-container">
       <div className="week-select-container">
@@ -212,6 +218,17 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
           <span>
             {getMonth() + " " + weekDates[0].getDate()} -{" "}
             {weekDates[6].getDate()}
+            <div className="jump-week-selecor-container">
+              <KeyboardArrowDownIcon
+                className="date-picker"
+                style={{ fontSize: "34px" }}
+              />
+              <input
+                type="date"
+                className="jump-week-selector"
+                onChange={handleCurrentDate}
+              ></input>
+            </div>
           </span>
         </div>
         <div className="week-change-div">
