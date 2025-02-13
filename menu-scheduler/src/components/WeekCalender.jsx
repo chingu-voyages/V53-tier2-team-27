@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import {
-  readLocalStorage,
-  filterRecipes,
-} from "../utilities/localStorageFunctions";
-import allergyKey from "../db/keys";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { filterRecipes } from "../utilities/localStorageFunctions";
 import dishes from "../db/dishes";
 import toggleDayOff from "../utilities/toggleDayOff";
+import { jsPDF } from "jspdf";
+
 // Function to get the start of the week for a given date
 const getStartOfWeek = (date) => {
   const startDate = new Date(date);
@@ -24,7 +23,6 @@ const generateWeekDates = (startDate) => {
     date.setDate(startDate.getDate() + i);
     dates.push(new Date(date));
   }
-  // console.log(dates);
   return dates;
 };
 
@@ -93,69 +91,75 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     let counter = 0; // Counter declared outside the loop
 
     if (Number.isInteger(days)) {
-        for (let i = 0; i < days + 1; i++) {
-            const newDate = new Date(currentDate);
-            newDate.setDate(currentDate.getDate() + i);
+      for (let i = 0; i < days + 1; i++) {
+        const newDate = new Date(currentDate);
+        newDate.setDate(currentDate.getDate() + i);
 
-            let item = getRandomItem(filteredDishes);
+        let item = getRandomItem(filteredDishes);
 
-            if (filteredDishes.length > 7) {
-                let attempts = 0;
-                while (stache.includes(item.name) && attempts < filteredDishes.length) {
-                    item = getRandomItem(filteredDishes);
-                    attempts++;
-                }
-            }
-
-            stache.push(item.name);
-            dateArray.push({
-                id: i,
-                date: newDate.toISOString().split("T")[0],
-                dishName: item.name,
-                dishIngredients: item.ingredients,
-                dishCal: item.calories,
-                dayOff: false,
-            });
-
-            counter++;
-
-            if (counter === 7) {
-                counter = 0;
-                stache = [];
-            }
+        if (filteredDishes.length > 7) {
+          let attempts = 0;
+          while (
+            stache.includes(item.name) &&
+            attempts < filteredDishes.length
+          ) {
+            item = getRandomItem(filteredDishes);
+            attempts++;
+          }
         }
+
+        stache.push(item.name);
+        dateArray.push({
+          id: i,
+          date: newDate.toISOString().split("T")[0],
+          dishName: item.name,
+          dishIngredients: item.ingredients,
+          dishCal: item.calories,
+          dayOff: false,
+        });
+
+        counter++;
+
+        if (counter === 7) {
+          counter = 0;
+          stache = [];
+        }
+      }
     } else {
-        for (let i = 0; i < 30; i++) {
-            const newDate = new Date(currentDate);
-            newDate.setDate(currentDate.getDate() + i);
+      for (let i = 0; i < 90; i++) {
+        const newDate = new Date(currentDate);
+        newDate.setDate(currentDate.getDate() + i);
 
-            let item = getRandomItem(filteredDishes);
+        let item = getRandomItem(filteredDishes);
 
-            if (filteredDishes.length > 7) {
-                let attempts = 0;
-                while (stache.includes(item.name) && attempts < filteredDishes.length) {
-                    item = getRandomItem(filteredDishes);
-                    attempts++;
-                }
-            }
-
-            stache.push(item.name);
-            dateArray.push({
-                id: i,
-                date: newDate.toISOString().split("T")[0],
-                dishName: item.name,
-                dishIngredients: item.ingredients,
-                dishCal: item.calories,
-                dayOff: false,
-            });
-
-            counter++;
-
-            if (counter === 7) {
-                counter = 0;
-                stache = [];
-            }
+        if (filteredDishes.length > 7) {
+          let attempts = 0;
+          while (
+            stache.includes(item.name) &&
+            attempts < filteredDishes.length
+          ) {
+            item = getRandomItem(filteredDishes);
+            attempts++;
+          }
         }
+
+        stache.push(item.name);
+        dateArray.push({
+          id: i,
+          date: newDate.toISOString().split("T")[0],
+          dishName: item.name,
+          dishIngredients: item.ingredients,
+          dishCal: item.calories,
+          dayOff: false,
+        });
+
+        counter++;
+
+        if (counter === 7) {
+          counter = 0;
+          stache = [];
+        }
+      }
     }
     setMenu(dateArray);
     setDates(dateArray);
@@ -207,6 +211,41 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
     }
   };
 
+  const downloadPDF = () => {
+    const doc = new jsPDF();
+    let yPosition = 10;
+    const marginBottom = 10;
+    const pageHeight = doc.internal.pageSize.height; // Get the page height
+    let currentPage = 1;
+
+    doc.setFontSize(18);
+    doc.text("Menu", 20, yPosition);
+    yPosition += 20;
+
+    doc.setFontSize(12);
+
+    dates.forEach((item, index) => {
+      if (yPosition + 20 > pageHeight - marginBottom) {
+        // Add a new page if content exceeds the page height
+        doc.addPage();
+        currentPage++;
+        yPosition = 10; // Reset yPosition for the new page
+      }
+      doc.text(`Date: ${item.date}`, 20, yPosition);
+      yPosition += 10;
+      doc.text(`Name: ${item.dishName}`, 20, yPosition);
+      yPosition += 10;
+      doc.text(`Ingredients: ${item.dishIngredients}`, 20, yPosition);
+      yPosition += 15;
+    });
+
+    doc.save("menu_schedule.pdf");
+  };
+
+  const handleCurrentDate = (event) => {
+    setCurrentDate(event.target.value);
+  };
+
   return (
     <div className="calender-container">
       <div className="week-select-container">
@@ -214,6 +253,17 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
           <span>
             {getMonth() + " " + weekDates[0].getDate()} -{" "}
             {weekDates[6].getDate()}
+            <div className="jump-week-selecor-container">
+              <KeyboardArrowDownIcon
+                className="date-picker"
+                style={{ fontSize: "34px" }}
+              />
+              <input
+                type="date"
+                className="jump-week-selector"
+                onChange={handleCurrentDate}
+              ></input>
+            </div>
           </span>
         </div>
         <div className="week-change-div">
@@ -368,6 +418,11 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="download-PDF-container">
+        <button onClick={downloadPDF} className="download-PDF-button">
+          Download PDF
+        </button>
       </div>
     </div>
   );
