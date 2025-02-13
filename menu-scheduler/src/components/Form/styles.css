@@ -18,12 +18,14 @@
 }
 
 h1 {
-    color: #841933
+    color: #841933;
+    order: 1;
 }
 
 .buttons {
     display: flex;
     gap: 10px;
+    order: 2;
 }
 
 .clear-btn {
@@ -106,7 +108,26 @@ input[type="checkbox"]:checked::after {
 /* media queries for mobile responsiveness */
 
 @media screen and (max-width: 768px) {
+    .form {
+        margin-top: 20x;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .checkbox-container {
         column-count: 2;
+        width: 100%;
+    }
+
+    h1 {
+        order: 2;
+        font-size: larger;
+    }
+
+    .buttons {
+        order: 1;
     }
 }

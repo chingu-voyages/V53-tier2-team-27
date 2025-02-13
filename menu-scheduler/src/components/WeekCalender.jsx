@@ -331,7 +331,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                         {getDateObject(date)?.dishIngredients?.join(", ")}
                       </div>
                       <div className="selected-meal-cal">
-                        {getDateObject(date)?.dishCal}
+                        {getDateObject(date)?.dishCal} calories
                       </div>
                     </>
                   )}
@@ -383,7 +383,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
                         {getDateObject(date)?.dishIngredients?.join(", ")}
                       </div>
                       <div className="selected-meal-cal">
-                        {getDateObject(date)?.dishCal}
+                        {getDateObject(date)?.dishCal} calories
                       </div>
                     </>
                   )}
