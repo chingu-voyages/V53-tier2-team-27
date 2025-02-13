@@ -6,12 +6,13 @@ import "./Header.css";
 
 const Header = ({ allergies, setAllergies }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="container">
-      <span>
-        <img src={logo} alt="Logo" className="img" />
-        <img src={logoTitle} alt="Logo" className="img" />
-      </span>
+    <header className="header-container">
+      <div className="logo-container">
+        <img src={logo} alt="Logo" className="logo" />
+        <img src={logoTitle} alt="Title" className="title" />
+      </div>
       <button className="btn" onClick={() => setIsOpen(true)}>
         Adjust Allergy Preferences
       </button>
@@ -22,9 +23,9 @@ const Header = ({ allergies, setAllergies }) => {
           setAllergies={setAllergies}
         />
       )}
-      {/* <button className="btn">Adjust Allergy Preferences</button> */}
-    </div>
+    </header>
   );
 };
 
 export default Header;
+
