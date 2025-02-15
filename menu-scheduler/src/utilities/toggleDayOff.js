@@ -27,7 +27,7 @@ function toggleDayOff(e, date, daysOff, setDaysOff, dates, setDates) {
 		setDates(refundedDates);
 		setDaysOff((prev) => [...prev, parsedDate]);
 	} else if (buttonDate === parsedDate) {
-		// dayStatus.textContent = 'Closed';
+		//
 		const refundedDates = dates.map((item) => {
 			if (item.date === formattedDate) {
 				return {

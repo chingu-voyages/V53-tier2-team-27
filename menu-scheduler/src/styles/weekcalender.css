@@ -217,6 +217,7 @@
 /* Optional: Add a stronger shadow when hovered */
 .download-PDF-button:hover {
 	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+	background-color: #a55428;
 }
 
 /* Toggle button styling */
