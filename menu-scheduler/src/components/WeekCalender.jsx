@@ -235,7 +235,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
 			if (item.dayOff) {
 				doc.text(`Date: ${item.date}`, 20, yPosition);
 				yPosition += 10;
-				doc.text(`DAY OFF`, 20, yPosition);
+				doc.text(`CLOSED`, 20, yPosition);
 				yPosition += 10;
 			}
 			doc.text(`Date: ${item.date}`, 20, yPosition);
