@@ -334,7 +334,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
 							</div>
 							{!dates ? null : (
 								<>
-									{getDateObject(date)?.dayOff ? (
+									{daysOff.includes(date.toISOString()) ? (
 										<div className="selected-meal-name"></div> // Return an empty string if dayOff is true
 									) : (
 										<>
@@ -359,7 +359,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
 						<div
 							key={index}
 							className={`day-container ${
-								getDateObject(date)?.dayOff ? 'day-off' : ''
+								daysOff.includes(date.toISOString()) ? 'day-off' : ''
 							}`}
 						>
 							<div className="day-title">
@@ -387,13 +387,13 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
 											)
 										}
 									>
-										{getDateObject(date)?.dayOff ? 'Closed' : 'Open'}
+										{daysOff.includes(date.toISOString()) ? 'Closed' : 'Open'}
 									</button>
 								</div>
 							</div>
 							{!dates ? null : (
 								<>
-									{getDateObject(date)?.dayOff ? (
+									{daysOff.includes(date.toISOString()) ? (
 										<div className="selected-meal-name"></div> // Return an empty string if dayOff is true
 									) : (
 										<>
