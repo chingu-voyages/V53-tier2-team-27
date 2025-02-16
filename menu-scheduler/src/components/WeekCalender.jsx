@@ -27,6 +27,7 @@ const generateWeekDates = (startDate) => {
 };
 
 const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
+
 	const [currentDate, setCurrentDate] = useState(new Date());
 	const [dates, setDates] = useState([]);
 	const [startDate, setStartDate] = useState(currentDate);
@@ -447,6 +448,7 @@ const WeekCalendar = ({ allergies, setAllergies, menu, setMenu }) => {
 			</div>
 		</div>
 	);
+
 };
 
 export default WeekCalendar;
