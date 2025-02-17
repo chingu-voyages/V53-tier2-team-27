@@ -1,5 +1,5 @@
 :root {
-	font-family: Lato, sans-serif;
+  font-family: Lato, sans-serif;
 }
 
 .week-container {
@@ -100,13 +100,13 @@
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-	padding-right: 4px;
-	padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .generate-div:hover {
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   background-color: #506b27;
 }
 
@@ -138,14 +138,13 @@
   display: flex;
   text-align: left;
   align-items: center;
-	justify-content: space-between;
+  justify-content: space-between;
   background-color: #841933;
   color: white;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: 18vw;
   height: 4vh;
-
 }
 
 .day-title-weekday {
@@ -182,7 +181,6 @@
   text-align: center;
   justify-content: center;
   font-style: italic;
-
 }
 .selected-meal-cal {
   margin-top: 1vh;
@@ -228,7 +226,7 @@
   height: 2rem;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
-	border: none;
+  border: none;
   /* Adding shadow */
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
@@ -254,8 +252,8 @@
   outline: none;
   z-index: 10;
   transition: background-color 0.4s;
-  margin-right: .5vw;
-  margin-bottom: .7vw;
+  margin-right: 0.5vw;
+  margin-bottom: 0.7vw;
 }
 
 .toggle-button::before {
@@ -413,50 +411,48 @@
     background-color: #841933;
   }
 
+  /* Toggle button styling */
 
-/* Toggle button styling */
+  .toggle-button {
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    padding-bottom: 2px;
+    width: 4vw;
+    height: 3vh;
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    border-radius: 34px;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+    transition: background-color 0.4s;
+  }
 
-.toggle-button {
-  font-size: 0;
-  line-height: 0;
-  position: relative;
-  padding-bottom: 2px;
-  width: 4vw;
-  height: 3vh;
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  border-radius: 34px;
-  cursor: pointer;
-  outline: none;
-  z-index: 10;
-  transition: background-color 0.4s;
-}
+  .toggle-button::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    bottom: 1.5px;
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    border-radius: 50%;
+    z-index: 10;
+    transition: transform 0.4s;
+  }
 
-.toggle-button::before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 2px;
-  bottom: 1.5px;
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  border-radius: 50%;
-  z-index: 10;
-  transition: transform 0.4s;
-}
+  .toggle-button[aria-pressed="true"] {
+    background-color: #841933;
+    border: 2px solid #edeee8;
+  }
 
-.toggle-button[aria-pressed="true"] {
-  background-color: #841933;
-  border: 2px solid #edeee8;
-}
-
-.toggle-button[aria-pressed="true"]::before {
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  transform: translateX(26px);
-}
-
+  .toggle-button[aria-pressed="true"]::before {
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    transform: translateX(26px);
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -577,7 +573,7 @@
     z-index: 10;
     transition: background-color 0.4s;
   }
-  
+
   .toggle-button::before {
     content: "";
     position: absolute;
@@ -591,12 +587,12 @@
     z-index: 10;
     transition: transform 0.4s;
   }
-  
+
   .toggle-button[aria-pressed="true"] {
     background-color: #841933;
     border: 2px solid #edeee8;
   }
-  
+
   .toggle-button[aria-pressed="true"]::before {
     background-color: #841933;
     border: 2px solid #edeee8;
@@ -645,7 +641,7 @@
     border: 3px solid #841933;
     border-radius: 16px;
     width: 80vw;
-    height: 25vh;
+    height: 28vh;
     margin-bottom: 2vh;
   }
   .generate-container {
@@ -774,7 +770,6 @@
     background-color: #841933;
   }
 
-
   /* Toggle button styling */
 
   .toggle-button {
@@ -792,7 +787,7 @@
     z-index: 10;
     transition: background-color 0.4s;
   }
-  
+
   .toggle-button::before {
     content: "";
     position: absolute;
@@ -806,18 +801,17 @@
     z-index: 10;
     transition: transform 0.4s;
   }
-  
+
   .toggle-button[aria-pressed="true"] {
     background-color: #841933;
     border: 2px solid #edeee8;
   }
-  
+
   .toggle-button[aria-pressed="true"]::before {
     background-color: #841933;
     border: 2px solid #edeee8;
     transform: translateX(4.2vw);
   }
-
 }
 
 .meal-id {
