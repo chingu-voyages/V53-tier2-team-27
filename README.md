@@ -16,6 +16,8 @@ The **Menu Creation Application** is a React-based web app that allows users to 
 - **React** – Front-end framework
 - **JavaScript** – Primary programming language
 - **HTML** – Markup language for structure
+- **CSS** - Vanilla css styling
+- **LocalStorageDB** - Database framework
 
 ## Installation
 To run the application locally:
