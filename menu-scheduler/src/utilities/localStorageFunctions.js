@@ -43,8 +43,50 @@ function stringLengthsAreValid(arr, amount) {
 }
 //end of helper functions
 
+//main functions
+function addAllergiesOnly(key, allergies) {
+  if (!Array.isArray(allergies)) {
+    throw new Error("Invalid input: allergies must be an array");
+  }
 
+  arrayValuesAreValidStrings(allergies);
 
+  const storedAllergies = localStorage.getItem(key);
+
+  let parsedAllergies = storedAllergies ? JSON.parse(storedAllergies) : [];
+
+  let updatedAllergies = new Set([...allergies, ...parsedAllergies]);
+
+  localStorage.setItem(key, JSON.stringify([...updatedAllergies]));
+}
+
+//read functionality to store information in state.
+
+function readLocalStorage(key) {
+  const storedData = localStorage.getItem(key);
+  if (!storedData) return [];
+  try {
+    return JSON.parse(storedData);
+  } catch (error) {
+    console.error("Error parsing localStorage data:", error);
+    return [];
+  }
+}
+
+//delete allergies
+
+function deleteAllergy(key, allergyToDelete) {
+  const storedData = localStorage.getItem(key);
+  const parsedData = JSON.parse(storedData);
+
+  const filteredData = parsedData.filter(
+    (allergy) => allergy !== allergyToDelete
+  );
+
+  localStorage.clear();
+
+  localStorage.setItem(key, JSON.stringify(filteredData));
+}
 
 
 
@@ -54,6 +96,9 @@ function stringLengthsAreValid(arr, amount) {
 function addAllergiesOnly(key, allergies) {
   if (typeof key !== "string" || key.trim() === "") {
     throw new Error("Invalid input: key must be a non-empty string");
+function addEmployeeAllergies({ name, allergies }) {
+  if (!name || typeof name !== "string") {
+    throw new Error("Invalid input: name must be a valid string");
   }
 
   if (!Array.isArray(allergies)) {
@@ -102,10 +147,12 @@ function filterRecipes(allergies, recipes) {
 
 
 
+
 export {
   arrayValuesAreValidStrings,
 	stringLengthsAreValid,
   addAllergiesOnly,
 	readLocalStorage,
   filterRecipes
+
 };
