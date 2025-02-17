@@ -7,10 +7,21 @@
 The **Menu Creation Application** is a React-based web app that allows users to generate weekly menus from a predetermined recipe database. Users can filter recipes based on allergies, toggle days off, and export the generated menu as a PDF.
 
 ## Features
-- **Menu Generation:** Managers may click the "Generate Menu" button to create a weekly menu for a default of 90 days. A manager may instead select a start and end date to create a menu with a specific timeframe. Scheduled meals are saved in local storage and will be cleared if allergy information changes.
-- **Allergy Filtering:** Managers may use the pop-out module to exclude dishes containing selected allergens.
-- **Day Toggle:** Using a slider, managers may mark days off to prevent menu generation for those days. Calendar days that are marked as days off will have a solid background for easy visibility.
-- **PDF Export:** Print or save the generated menu as a PDF. Menu information such as date, dish name, ingredients, and days off are organized in chronological order in list format.
+
+**<u>Menu Generation:</u>**
+Managers may click the "Generate Menu" button to create a weekly menu for a default of 90 days. A manager may instead select a start and end date to create a menu with a specific timeframe. Scheduled meals are saved in local storage and will be cleared if allergy information changes.
+
+**<u>Allergy Filtering:</u>**
+Managers may use the pop-out module to exclude dishes containing selected allergens.
+
+**<u>Day Toggle:</u>**
+Using a slider, managers may mark days off to prevent menu generation for those days. Calendar days that are marked as days off will have a solid background for easy visibility.
+
+**<u>PDF Export:</u>**
+Print or save the generated menu as a PDF. Menu information such as date, dish name, ingredients, and days off are organized in chronological order in list format.
+
+**<u>Responsiveness:</u>**
+Our app is easy to navigate and is viewable on desktop, tablet, and mobile.
 
 ## Tech Stack
 - **React** – Front-end framework
