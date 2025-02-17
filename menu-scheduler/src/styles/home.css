@@ -1,4 +1,6 @@
 .home-container {
+  background-image: url(../images/carrots.png);
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,5 +9,5 @@
 
 .calender-container {
   width: 80vw;
-  height: 100vh;
+  margin-bottom: 4vh;
 }
