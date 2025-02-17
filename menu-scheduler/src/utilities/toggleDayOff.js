@@ -3,8 +3,8 @@ function toggleDayOff(e, date, daysOff, setDaysOff, dates, setDates) {
 	let dayStatusText = e.target.textContent;
 	let buttonDate = e.target.id;
 
-	// const isPressed = e.target.getAttribute('aria-pressed') === 'true';
-	// e.target.setAttribute('aria-pressed', !isPressed);
+	const isPressed = e.target.getAttribute('aria-pressed') === 'true';
+	e.target.setAttribute('aria-pressed', !isPressed);
 	// console.log(e.target.getAttribute('aria-pressed'));
 
 	const parsedDate = date.toISOString();

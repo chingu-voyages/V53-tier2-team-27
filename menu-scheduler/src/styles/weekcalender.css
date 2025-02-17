@@ -242,24 +242,6 @@
 /* Toggle button styling */
 
 .toggle-button {
-
-  position: relative;
-  width: 50px;
-  height: 26px;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-  background-color: #ffffff;
-  border: black 1px;
-  border-radius: 30px;
-  cursor: pointer;
-  outline: none;
-  z-index: 10;
-	margin-bottom: .5rem;
-	right: 30%;
-}
-
-.toggle-button:hover {
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-  background-color: #cccbcb;
   font-size: 0;
   line-height: 0;
   position: relative;
@@ -272,7 +254,8 @@
   outline: none;
   z-index: 10;
   transition: background-color 0.4s;
-
+  margin-right: .5vw;
+  margin-bottom: .7vw;
 }
 
 .toggle-button::before {
@@ -298,8 +281,24 @@
   background-color: #841933;
   border: 2px solid #edeee8;
   transform: translateX(26px);
-} */
+}
 
+/* .toggle-button:hover {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #cccbcb;
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+  width: 54px;
+  height: 26px;
+  background-color: #841933;
+  border: 2px solid #edeee8;
+  border-radius: 34px;
+  cursor: pointer;
+  outline: none;
+  z-index: 10;
+  transition: background-color 0.4s;
+} */
 /* Media queries start here */
 
 @media only screen and (max-width: 1350px) {
@@ -563,46 +562,46 @@
 
   /* Toggle button styling */
 
-.toggle-button {
-  font-size: 0;
-  line-height: 0;
-  position: relative;
-  padding-bottom: 2px;
-  width: 4vw;
-  height: 3vh;
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  border-radius: 34px;
-  cursor: pointer;
-  outline: none;
-  z-index: 10;
-  transition: background-color 0.4s;
-}
-
-.toggle-button::before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 2px;
-  bottom: 1.5px;
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  border-radius: 50%;
-  z-index: 10;
-  transition: transform 0.4s;
-}
-
-.toggle-button[aria-pressed="true"] {
-  background-color: #841933;
-  border: 2px solid #edeee8;
-}
-
-.toggle-button[aria-pressed="true"]::before {
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  transform: translateX(13px);
-}
+  .toggle-button {
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    padding-bottom: 2px;
+    width: 4vw;
+    height: 3vh;
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    border-radius: 34px;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+    transition: background-color 0.4s;
+  }
+  
+  .toggle-button::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 2px;
+    bottom: 1.5px;
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    border-radius: 50%;
+    z-index: 10;
+    transition: transform 0.4s;
+  }
+  
+  .toggle-button[aria-pressed="true"] {
+    background-color: #841933;
+    border: 2px solid #edeee8;
+  }
+  
+  .toggle-button[aria-pressed="true"]::before {
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    transform: translateX(13px);
+  }
 }
 
 @media only screen and (max-width: 550px) {
@@ -778,46 +777,46 @@
 
   /* Toggle button styling */
 
-.toggle-button {
-  font-size: 0;
-  line-height: 0;
-  position: relative;
-  padding-bottom: 2px;
-  width: 13vw;
-  height: 4vh;
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  border-radius: 34px;
-  cursor: pointer;
-  outline: none;
-  z-index: 10;
-  transition: background-color 0.4s;
-}
-
-.toggle-button::before {
-  content: "";
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 2px;
-  bottom: 1.5px;
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  border-radius: 50%;
-  z-index: 10;
-  transition: transform 0.4s;
-}
-
-.toggle-button[aria-pressed="true"] {
-  background-color: #841933;
-  border: 2px solid #edeee8;
-}
-
-.toggle-button[aria-pressed="true"]::before {
-  background-color: #841933;
-  border: 2px solid #edeee8;
-  transform: translateX(34px);
-}
+  .toggle-button {
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+    padding-bottom: 2px;
+    width: 13vw;
+    height: 4vh;
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    border-radius: 34px;
+    cursor: pointer;
+    outline: none;
+    z-index: 10;
+    transition: background-color 0.4s;
+  }
+  
+  .toggle-button::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 2px;
+    bottom: 1.5px;
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    border-radius: 50%;
+    z-index: 10;
+    transition: transform 0.4s;
+  }
+  
+  .toggle-button[aria-pressed="true"] {
+    background-color: #841933;
+    border: 2px solid #edeee8;
+  }
+  
+  .toggle-button[aria-pressed="true"]::before {
+    background-color: #841933;
+    border: 2px solid #edeee8;
+    transform: translateX(4.2vw);
+  }
 
 }
 
