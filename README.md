@@ -11,7 +11,7 @@ The **Menu Creation Application** is a React-based web app that allows managers 
 **<u>Menu Generation:</u>**
 Managers may click the "Generate Menu" button to create a weekly menu for a default of 90 days. A manager may instead select a start and end date to create a menu with a specific timeframe. Scheduled meals are saved in local storage and will be cleared if allergy information changes.
 
-**<u>Allergy Filtering:</u>**
+**<u>Allergy Preferences:</u>**
 Managers may use the pop-out module to exclude dishes containing selected employee allergens.
 
 **<u>Day Toggle:</u>**
