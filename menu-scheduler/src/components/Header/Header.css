@@ -1,68 +1,65 @@
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    gap: clamp(10px, 4vw, 30px);
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vw;
+  width: 94vw;
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: clamp(10px, 2vw, 18px);
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 2vw, 18px);
 }
 
 .logo {
-    width: 100px;
-    max-width: 110px;
-    height: auto;
+  width: 14vw;
+
+  height: auto;
 }
 
 .title {
-    width: 130px;
-    max-width: 140px;
-    height: auto;
+  width: 14vw;
+
+  height: auto;
 }
 
 .btn {
-    padding: 7px 14px;
-    background: rgba(237, 238, 232, 1);
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
+  padding: 7px 14px;
+  background: rgba(237, 238, 232, 1);
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 .btn:hover {
-    background-color: black;
-    color: rgba(237, 238, 232, 1);
+  background-color: black;
+  color: rgba(237, 238, 232, 1);
 }
 
 @media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 20px;
-    }
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
 
-    .logo {
-        width: 70px;
-        max-width: 100px;
-    }
+  .logo {
+    width: 32vw;
+    /* max-width: 100px; */
+  }
 
-    .title {
-        width: 120px;
-        max-width: 130px;
-    }
+  .title {
+    width: 32vw;
+    /* max-width: 130px; */
+  }
 
-    .btn {
-        font-size: 13px;
-        padding: 6px 12px;
-    }
+  .btn {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
 }

@@ -1,134 +1,139 @@
 .footer-container {
-	padding: 20px;
-	background-color: #f9f9f9;
-	border-top: 2px solid #ddd;
-	text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-top: 2px solid #ddd;
+  text-align: center;
 }
 
 .footer-title {
-	font-size: 1.5rem;
-	margin-bottom: 20px;
-	color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .team-list {
-	list-style: none;
-	padding: 0;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 15px;
-	max-width: 800px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  max-width: 800px;
 }
 
 .team-member {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 10px 15px;
-	background-color: #fff;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
 .member-name {
-	font-weight: bold;
-	color: #333;
-	text-align: left;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
 }
 
 .icons {
-	display: flex;
-	gap: 10px;
-	justify-content: flex-end;
-	align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .icon-link {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 32px;
-	height: 32px;
-	background-color: rgba(99, 133, 48, 1);
-	border-radius: 50%;
-	transition: transform 0.2s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(99, 133, 48, 1);
+  border-radius: 50%;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .icon {
-	width: 18px;
-	height: 18px;
-	filter: brightness(0) invert(1);
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
 }
 
 .icon-link:hover {
-	transform: scale(1.2);
-	opacity: 0.8;
+  transform: scale(1.2);
+  opacity: 0.8;
 }
 
 .footer-repo {
-	margin-top: 20px;
-	font-size: 16px;
+  margin-top: 20px;
+  font-size: 16px;
 }
 
 .footer-repo a {
-	text-decoration: none;
-	color: #0056b3;
-	font-weight: bold;
+  text-decoration: none;
+  color: #0056b3;
+  font-weight: bold;
 }
 
 .footer-repo a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .line {
-	width: 75%;
-	height: 1px;
-	background-color: black; /* Adjust color */
-	margin: 0 auto 10px; /* Centers the line and adds spacing */
-	margin-top: 50px;
-	margin-bottom: 20px;
+  width: 75%;
+  height: 1px;
+  background-color: black; /* Adjust color */
+  margin: 0 auto 10px; /* Centers the line and adds spacing */
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .git-url {
-	font-size: 1.5rem;
-	text-decoration: none;
-	color: #0056b3;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #0056b3;
 }
 
 .git-url:after {
-	color: #0056b3;
-	text-decoration: none;
+  color: #0056b3;
+  text-decoration: none;
 }
 
 .git-url a {
-	text-decoration: none;
-	color: #dd7135;
+  text-decoration: none;
+  color: #dd7135;
 }
 
 .git-url a:hover {
-	color: #724229;
+  color: #724229;
 }
 
 @media (max-width: 768px) {
-	.team-list {
-		grid-template-columns: repeat(1, 1fr);
-		gap: 10px;
-	}
+  .team-list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-	.footer-title {
-		font-size: 1.2rem;
-	}
+  .footer-title {
+    font-size: 1.2rem;
+  }
 
-	.team-member {
-		flex-direction: column;
-		text-align: center;
-		padding: 15px;
-	}
+  .team-member {
+    width: 60vw;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 15px;
+  }
 
-	.icons {
-		justify-content: center;
-	}
+  .icons {
+    justify-content: center;
+  }
 }
