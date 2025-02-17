@@ -69,6 +69,9 @@ h1 {
 .checkbox-container > div {
     break-inside: avoid;
     padding: 5px 0;
+    display: flex;
+    align-items: center;
+
 }
 
 /* This is the styling for the checkboxes */
@@ -119,6 +122,8 @@ input[type="checkbox"]:checked::after {
     
     .checkbox-container {
         column-count: 2;
+        font-size: 12px;
+        column-gap: 80px;
         width: 100%;
     }
 
@@ -129,5 +134,7 @@ input[type="checkbox"]:checked::after {
 
     .buttons {
         order: 1;
+
     }
+
 }
