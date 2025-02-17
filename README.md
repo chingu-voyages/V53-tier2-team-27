@@ -4,7 +4,7 @@
 
 
 ## Overview
-The **Menu Creation Application** is a React-based web app that allows users to generate weekly menus from a predetermined recipe database. Users can filter recipes based on allergies, toggle days off, and export the generated menu as a PDF.
+The **Menu Creation Application** is a React-based web app that allows managers to generate weekly menus from a predetermined recipe database. Managers can filter recipes based on employee allergies, toggle days off, and export the generated menu as a PDF.
 
 ## Features
 
