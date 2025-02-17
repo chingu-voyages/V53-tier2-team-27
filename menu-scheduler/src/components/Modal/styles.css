@@ -27,3 +27,21 @@
     z-index: 100;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
 }
+
+
+@media screen and (max-width: 768px) { 
+    .centered {
+        top: 70%;
+        left: 51%;
+    }
+
+    .modal {
+        background-color: #EDEEE8;
+        position: relative;
+        border-radius: 10px;
+        padding: 35px;
+        width: 80%;
+        z-index: 100;
+        box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    }
+}

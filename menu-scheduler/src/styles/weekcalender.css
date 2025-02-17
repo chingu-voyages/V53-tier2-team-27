@@ -1,238 +1,255 @@
 .week-container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .week-select-container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 5vh;
-	width: 78vw;
-	margin-left: 1.5vw;
-	margin-bottom: 2vh;
-	margin-top: 2vh;
-	font-size: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5vh;
+  width: 78vw;
+  margin-left: 1.5vw;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  font-size: 1vw;
 }
 
 .week-display {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
-	font-size: 1.5vw;
-	margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5vw;
+  margin-left: 1vw;
 }
 
 .jump-week-selector-container {
-	position: relative;
-	margin-left: 0.5vw;
-	width: 17px;
+  position: relative;
+  margin-left: 0.5vw;
+  width: 17px;
 }
+
 .jump-week-selector {
-	position: absolute;
-	width: 17px;
-	margin-top: -10px;
-	margin-left: 0.4vw;
-	opacity: 0;
+  position: absolute;
+  width: 17px;
+  margin-top: -10px;
+  margin-left: 0.4vw;
+  opacity: 0;
 }
 
 .date-picker {
-	position: absolute;
-	margin-top: -16px;
+  position: absolute;
+  margin-top: -16px;
 }
 
 .week-change-div {
-	display: flex;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .jump-to-this-week {
-	padding: 0.5vw;
-	margin-left: 1vw;
-	margin-right: 1vw;
-	font-size: 1.5vw;
-	cursor: pointer;
+  padding: 0.5vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  font-size: 1.5vw;
+  cursor: pointer;
 }
 
 .prev-week-button {
-	width: 3vw;
-	height: 1vh;
-	padding: 0.7vw;
-	cursor: pointer;
+  width: 3vw;
+  height: 1vh;
+  padding: 0.7vw;
+  cursor: pointer;
 }
 
 .next-week-button {
-	width: 3vw;
-	height: 1vh;
-	padding: 0.7vw;
-	cursor: pointer;
+  width: 3vw;
+  height: 1vh;
+  padding: 0.7vw;
+  cursor: pointer;
 }
 
 .first-row-dates {
-	display: flex;
-	justify-content: space-evenly;
-	margin-bottom: 2vh;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2vh;
 }
 
 .second-row-dates {
-	display: flex;
-	justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .generate-div {
-	margin-top: 2vh;
-	background-color: #638530;
-	color: white;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	width: 18vw;
-	height: 10vh;
-	border-radius: 10px;
-	border: 3px solid #638530;
-	cursor: pointer;
+  margin-top: 2vh;
+  background-color: #638530;
+  color: white;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 18vw;
+  height: 8vh;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+	padding-right: 4px;
+	padding-left: 4px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.generate-div:hover {
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #506b27;
 }
 
 .generate-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
-	width: 18vw;
-	height: 22vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 18vw;
+  height: 22vh;
 }
 
 .generate-button {
-	font-size: 2.5vw;
+  font-size: 2.5vw;
 }
 
 .day-container {
-	background-color: white;
-	border: 3px solid #841933;
-	border-radius: 16px;
-	width: 18vw;
-	height: 22vh;
+  background-color: white;
+  border: 3px solid #841933;
+  border-radius: 16px;
+  width: 18vw;
+  height: 22vh;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
 
 .day-title {
-	font-size: 1.5vw;
-	display: flex;
-	text-align: left;
-	align-items: center;
-	background-color: #841933;
-	color: white;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	width: 18vw;
-	height: 4vh;
+  font-size: 1.5vw;
+  display: flex;
+  text-align: left;
+  align-items: center;
+	justify-content: space-between;
+  background-color: #841933;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 18vw;
+  height: 4vh;
+
 }
 
 .day-title-weekday {
-	width: 12vw;
-	text-align: center;
+  width: 12vw;
+  text-align: center;
 }
 
 .day-title-number {
-	width: 2vw;
-	margin-left: 0.8vw;
+  width: 2vw;
+  margin-left: 0.8vw;
 }
 
 .selected-meal-name {
-	margin-top: 1vh;
-	font-size: 1.5vw;
-	color: black;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
+  margin-top: 1vh;
+  font-size: 1.5vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .selected-meal-ingredients {
-	margin-top: 1vh;
-	font-size: 1vw;
-	margin-left: 0.2vw;
-	margin-right: 0.2vw;
-	color: black;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
-	font-style: italic;
+  margin-top: 1vh;
+  font-size: 1vw;
+  margin-left: 0.2vw;
+  margin-right: 0.2vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-style: italic;
 }
 .selected-meal-cal {
-	margin-top: 1vh;
-	font-size: 0.8vw;
-	color: black;
-	display: flex;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
-	font-style: italic;
+  margin-top: 1vh;
+  font-size: 0.8vw;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-style: italic;
 }
 
 .date-range-container {
-	display: flex;
-	align-items: center;
-	text-align: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .start-date-div {
-	margin-right: 2vw;
+  margin-right: 2vw;
 }
 
 .end-date-div {
-	margin-right: 0vw;
+  margin-right: 0vw;
 }
 
 .day-off {
-	background-color: #841933;
+  background-color: #841933;
 }
 
 .download-PDF-container {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .download-PDF-button {
-	background-color: #dd7135;
-	border: 2px solid black; /* Black outline */
-	border-radius: 5px;
-	margin-top: 4rem;
-	color: white;
-	width: 10rem;
-	height: 2rem;
-	cursor: pointer;
-	transition: background-color 0.3s, box-shadow 0.3s;
-
-	/* Adding shadow */
-	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  background-color: #dd7135;
+  border-radius: 5px;
+  margin-top: 4rem;
+  color: white;
+  width: 10rem;
+  height: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+	border: none;
+  /* Adding shadow */
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
 
 /* Optional: Add a stronger shadow when hovered */
 .download-PDF-button:hover {
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-	background-color: #a55428;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #a55428;
 }
 
 /* Toggle button styling */
 
 .toggle-button {
-	position: relative;
-	width: 54px;
-	height: 26px;
-	background-color: #ffffff;
-	border: black 1px;
-	border-radius: 34px;
-	cursor: pointer;
-	outline: none;
-	z-index: 10;
-	transition: background-color 0.4s;
+  position: relative;
+  width: 50px;
+  height: 26px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+  background-color: #ffffff;
+  border: black 1px;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  z-index: 10;
+	margin-bottom: .5rem;
+	right: 30%;
+}
+
+.toggle-button:hover {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #cccbcb;
 }
 
 /* .toggle-button::before {
@@ -261,390 +278,390 @@
 /* Media queries start here */
 
 @media only screen and (max-width: 1350px) {
-	.day-container {
-		background-color: white;
-		border: 3px solid #841933;
-		border-radius: 16px;
-		width: 18vw;
-		height: 18vh;
-	}
-	.generate-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		width: 18vw;
-		height: 18vh;
-	}
-	.generate-div {
-		margin-top: 2vh;
-		background-color: #638530;
-		color: white;
-		display: flex;
-		text-align: center;
-		align-items: center;
-		justify-content: center;
-		width: 18vw;
-		height: 7vh;
-		border-radius: 10px;
-		border: 3px solid #638530;
-		cursor: pointer;
-	}
-	.generate-button {
-		font-size: 2vw;
-	}
-	.date-range-container {
-		width: 18vw;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
+  .day-container {
+    background-color: white;
+    border: 3px solid #841933;
+    border-radius: 16px;
+    width: 18vw;
+    height: 18vh;
+  }
+  .generate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 18vw;
+    height: 18vh;
+  }
+  .generate-div {
+    margin-top: 2vh;
+    background-color: #638530;
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 18vw;
+    height: 7vh;
+    border-radius: 10px;
+    border: 3px solid #638530;
+    cursor: pointer;
+  }
+  .generate-button {
+    font-size: 2vw;
+  }
+  .date-range-container {
+    width: 18vw;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
 
-	.start-date-div {
-		margin-right: 2vw;
-	}
-	.start-date {
-		font-size: 1.2vw;
-	}
+  .start-date-div {
+    margin-right: 2vw;
+  }
+  .start-date {
+    font-size: 1.2vw;
+  }
 
-	.end-date-div {
-		margin-right: 0vw;
-	}
-	.end-date {
-		font-size: 1.2vw;
-	}
-	.date-input {
-		font-size: 1vw;
-		width: 8vw;
-	}
-	.day-title {
-		font-size: 1.5vw;
-		display: flex;
-		text-align: left;
-		align-items: center;
-		background-color: #841933;
-		color: white;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-		width: 18vw;
-		height: 3vh;
-	}
-	.week-display {
-		font-size: 16px;
-		margin-left: 1vw;
-	}
-	.selected-meal-name {
-		margin-top: 1vh;
-		font-size: 1.8vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
-	.selected-meal-ingredients {
-		margin-top: 1vh;
-		font-size: 1.2vw;
-		margin-left: 0.2vw;
-		margin-right: 0.2vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		font-style: italic;
-	}
-	.selected-meal-cal {
-		margin-top: 1vh;
-		font-size: 1vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		font-style: italic;
-	}
+  .end-date-div {
+    margin-right: 0vw;
+  }
+  .end-date {
+    font-size: 1.2vw;
+  }
+  .date-input {
+    font-size: 1vw;
+    width: 8vw;
+  }
+  .day-title {
+    font-size: 1.5vw;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    background-color: #841933;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 18vw;
+    height: 3vh;
+  }
+  .week-display {
+    font-size: 16px;
+    margin-left: 1vw;
+  }
+  .selected-meal-name {
+    margin-top: 1vh;
+    font-size: 1.8vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .selected-meal-ingredients {
+    margin-top: 1vh;
+    font-size: 1.2vw;
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+  }
+  .selected-meal-cal {
+    margin-top: 1vh;
+    font-size: 1vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+  }
 
-	.day-off {
-		background-color: #841933;
-	}
+  .day-off {
+    background-color: #841933;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
-	.day-container {
-		background-color: white;
-		border: 3px solid #841933;
-		border-radius: 16px;
-		width: 18vw;
-		height: 14vh;
-	}
-	.generate-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		width: 18vw;
-		height: 14vh;
-	}
-	.generate-div {
-		background-color: #638530;
-		color: white;
-		display: flex;
-		text-align: center;
-		align-items: center;
-		justify-content: center;
-		width: 18vw;
-		height: 5vh;
-		border-radius: 10px;
-		border: 3px solid #638530;
-		cursor: pointer;
-	}
-	.generate-button {
-		font-size: 2vw;
-	}
-	.date-range-container {
-		width: 18vw;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
+  .day-container {
+    background-color: white;
+    border: 3px solid #841933;
+    border-radius: 16px;
+    width: 18vw;
+    height: 14vh;
+  }
+  .generate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 18vw;
+    height: 14vh;
+  }
+  .generate-div {
+    background-color: #638530;
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 18vw;
+    height: 5vh;
+    border-radius: 10px;
+    border: 3px solid #638530;
+    cursor: pointer;
+  }
+  .generate-button {
+    font-size: 2vw;
+  }
+  .date-range-container {
+    width: 18vw;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
 
-	.start-date-div {
-		margin-right: 2vw;
-	}
-	.start-date {
-		font-size: 1.2vw;
-	}
+  .start-date-div {
+    margin-right: 2vw;
+  }
+  .start-date {
+    font-size: 1.2vw;
+  }
 
-	.end-date-div {
-		margin-right: 0vw;
-	}
-	.end-date {
-		font-size: 1.2vw;
-	}
-	.date-input {
-		font-size: 1vw;
-		width: 8vw;
-	}
-	.jump-to-this-week {
-		padding: 0.5vw;
-		margin-left: 1vw;
-		margin-right: 1vw;
-		font-size: 16px;
-		cursor: pointer;
-	}
-	.selected-meal-name {
-		margin-top: 1vh;
-		font-size: 14px;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
-	.selected-meal-ingredients {
-		margin-top: 1vh;
-		font-size: 10px;
-		margin-left: 0.2vw;
-		margin-right: 0.2vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		font-style: italic;
-	}
-	.selected-meal-cal {
-		margin-top: 1vh;
-		font-size: 10px;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		font-style: italic;
-	}
+  .end-date-div {
+    margin-right: 0vw;
+  }
+  .end-date {
+    font-size: 1.2vw;
+  }
+  .date-input {
+    font-size: 1vw;
+    width: 8vw;
+  }
+  .jump-to-this-week {
+    padding: 0.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .selected-meal-name {
+    margin-top: 1vh;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .selected-meal-ingredients {
+    margin-top: 1vh;
+    font-size: 10px;
+    margin-left: 0.2vw;
+    margin-right: 0.2vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+  }
+  .selected-meal-cal {
+    margin-top: 1vh;
+    font-size: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+  }
 
-	.day-off {
-		background-color: #841933;
-	}
+  .day-off {
+    background-color: #841933;
+  }
 }
 
 @media only screen and (max-width: 550px) {
-	.week-select-container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 5vh;
-		width: 78vw;
-		margin-left: 1.5vw;
-		margin-bottom: 2vh;
-		margin-top: 2vh;
-		font-size: 1vw;
-	}
-	.week-display {
-		font-size: 6vw;
-	}
-	.week-change-div {
-		display: none;
-	}
-	.jump-to-this-week {
-		padding: 0.5vw;
-		margin-left: 1vw;
-		margin-right: 1vw;
-		font-size: 3.5vw;
-		cursor: pointer;
-	}
-	.first-row-dates {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-		margin-bottom: 0vh;
-	}
-	.second-row-dates {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-	}
-	.day-container {
-		background-color: white;
-		border: 3px solid #841933;
-		border-radius: 16px;
-		width: 80vw;
-		height: 25vh;
-		margin-bottom: 2vh;
-	}
-	.generate-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		width: 80vw;
-		height: 25vh;
-	}
-	.generate-div {
-		background-color: #638530;
-		color: white;
-		display: flex;
-		text-align: center;
-		align-items: center;
-		justify-content: center;
-		width: 80vw;
-		height: 15vh;
-		border-radius: 10px;
-		border: 3px solid #638530;
-		cursor: pointer;
-	}
-	.generate-button {
-		font-size: 2vw;
-	}
-	.date-range-container {
-		width: 80vw;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
+  .week-select-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    width: 78vw;
+    margin-left: 1.5vw;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    font-size: 1vw;
+  }
+  .week-display {
+    font-size: 6vw;
+  }
+  .week-change-div {
+    display: none;
+  }
+  .jump-to-this-week {
+    padding: 0.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    font-size: 3.5vw;
+    cursor: pointer;
+  }
+  .first-row-dates {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 0vh;
+  }
+  .second-row-dates {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .day-container {
+    background-color: white;
+    border: 3px solid #841933;
+    border-radius: 16px;
+    width: 80vw;
+    height: 25vh;
+    margin-bottom: 2vh;
+  }
+  .generate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 80vw;
+    height: 25vh;
+  }
+  .generate-div {
+    background-color: #638530;
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    height: 15vh;
+    border-radius: 10px;
+    border: 3px solid #638530;
+    cursor: pointer;
+  }
+  .generate-button {
+    font-size: 2vw;
+  }
+  .date-range-container {
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
 
-	.start-date-div {
-		margin-right: 2vw;
-	}
-	.start-date {
-		font-size: 4vw;
-	}
+  .start-date-div {
+    margin-right: 2vw;
+  }
+  .start-date {
+    font-size: 4vw;
+  }
 
-	.end-date-div {
-		margin-right: 0vw;
-	}
-	.end-date {
-		font-size: 4vw;
-	}
-	.date-input {
-		font-size: 2.5vw;
-		width: 20vw;
-	}
+  .end-date-div {
+    margin-right: 0vw;
+  }
+  .end-date {
+    font-size: 4vw;
+  }
+  .date-input {
+    font-size: 2.5vw;
+    width: 20vw;
+  }
 
-	.generate-button {
-		font-size: 40px;
-	}
-	.day-title {
-		font-size: 30px;
-		display: flex;
-		text-align: left;
-		align-items: center;
-		background-color: #841933;
-		color: white;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
-		width: 80vw;
-		height: 6vh;
-	}
+  .generate-button {
+    font-size: 40px;
+  }
+  .day-title {
+    font-size: 30px;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    background-color: #841933;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 80vw;
+    height: 6vh;
+  }
 
-	.day-title-weekday {
-		width: 80vw;
-		text-align: center;
-	}
+  .day-title-weekday {
+    width: 80vw;
+    text-align: center;
+  }
 
-	.day-title-number {
-		width: 2vw;
-		margin-left: 5vw;
-	}
+  .day-title-number {
+    width: 2vw;
+    margin-left: 5vw;
+  }
 
-	.selected-meal-name {
-		margin-top: 3vh;
-		font-size: 6vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-	}
-	.selected-meal-ingredients {
-		margin-top: 2vh;
-		font-size: 4vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		font-style: italic;
-	}
-	.selected-meal-cal {
-		margin-top: 2vh;
-		font-size: 3vw;
-		color: black;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		font-style: italic;
-	}
-	.date-range-container {
-		display: flex;
-		align-items: center;
-		text-align: center;
-		justify-content: center;
-		margin-top: 1vh;
-	}
+  .selected-meal-name {
+    margin-top: 3vh;
+    font-size: 6vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .selected-meal-ingredients {
+    margin-top: 2vh;
+    font-size: 4vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+  }
+  .selected-meal-cal {
+    margin-top: 2vh;
+    font-size: 3vw;
+    color: black;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+  }
+  .date-range-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 1vh;
+  }
 
-	.start-date-div {
-		margin-right: 7vw;
-	}
+  .start-date-div {
+    margin-right: 7vw;
+  }
 
-	.end-date-div {
-		margin-right: 0vw;
-	}
+  .end-date-div {
+    margin-right: 0vw;
+  }
 
-	.day-off {
-		background-color: #841933;
-	}
+  .day-off {
+    background-color: #841933;
+  }
 }
 
 .meal-id {
-	display: none;
+  display: none;
 }
