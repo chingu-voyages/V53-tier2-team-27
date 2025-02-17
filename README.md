@@ -52,10 +52,10 @@ To run the application locally:
 
 ## Our Team
 
-- Valerie Johnson: [GitHub](https://github.com/johnsonval) / [LinkedIn](https://linkedin.com/in/valeriemichellejohnson)
-- Ayoum Soumah: [GitHub](https://github.com/fodelaye26) / [LinkedIn](https://linkedin.com/in/asoumahpm/)
+- Valerie Johnson (Primary Scrum Master): [GitHub](https://github.com/johnsonval) / [LinkedIn](https://linkedin.com/in/valeriemichellejohnson)
+- Ayoum Soumah (Secondary Scrum Master): [GitHub](https://github.com/fodelaye26) / [LinkedIn](https://linkedin.com/in/asoumahpm/)
 - William Kalish (Developer): [GitHub](https://github.com/williamk31) / [LinkedIn](https://linkedin.com/in/william-kalish)
 - Ryan Nolan (Developer): [GitHub](https://github.com/ryannolanco) / [LinkedIn](https://www.linkedin.com/in/ryannolanco/)
-- Abby Nyhof: [GitHub](https://github.com/abbynyhof) / [LinkedIn](https://www.linkedin.com/in/abbynyhof/)
+- Abby Nyhof (UX/UI Designer): [GitHub](https://github.com/abbynyhof) / [LinkedIn](https://www.linkedin.com/in/abbynyhof/)
 - Matthew Neie (Developer): [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
-- Guillermo Guevara: [GitHub](https://github.com/guillermoguevara887) / [LinkedIn](https://www.linkedin.com/in/guillermo-guevara-6758a51a0)
+- Guillermo Guevara (Developer): [GitHub](https://github.com/guillermoguevara887) / [LinkedIn](https://www.linkedin.com/in/guillermo-guevara-6758a51a0)
