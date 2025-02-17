@@ -27,7 +27,7 @@ Our app is easy to navigate and is viewable on desktop, tablet, and mobile.
 - **React** – Front-end framework
 - **JavaScript** – Primary programming language
 - **HTML** – Markup language for structure
-- **CSS** - Vanilla css styling
+- **CSS** - Vanilla CSS styling
 - **LocalStorageDB** - Database framework
 
 ## Installation
