@@ -18,7 +18,7 @@ Managers may use the pop-out module to exclude dishes containing selected employ
 Using a slider, managers may mark days off to prevent menu generation for those days. Calendar days that are marked as days off will have a solid background for easy visibility.
 
 **<u>PDF Export:</u>**
-Print or save the generated menu as a PDF. Menu information such as date, dish name, ingredients, and days off are organized in chronological order in list format.
+Print or save the generated menu as a PDF. Menu information such as dates, dish names, ingredients, and days off are organized in chronological order in list format.
 
 **<u>Responsiveness:</u>**
 Our app is easy to navigate and is viewable on desktop, tablet, and mobile.
