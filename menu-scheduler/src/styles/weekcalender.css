@@ -417,9 +417,8 @@
     font-size: 0;
     line-height: 0;
     position: relative;
-    padding-bottom: 2px;
-    width: 4vw;
-    height: 3vh;
+    width: 54px;
+    height: 26px;
     background-color: #841933;
     border: 2px solid #edeee8;
     border-radius: 34px;
@@ -427,6 +426,8 @@
     outline: none;
     z-index: 10;
     transition: background-color 0.4s;
+    margin-right: 0.5vw;
+    margin-bottom: -0.3vw;
   }
 
   .toggle-button::before {
@@ -562,9 +563,8 @@
     font-size: 0;
     line-height: 0;
     position: relative;
-    padding-bottom: 2px;
-    width: 4vw;
-    height: 3vh;
+    width: 54px;
+    height: 26px;
     background-color: #841933;
     border: 2px solid #edeee8;
     border-radius: 34px;
@@ -572,6 +572,8 @@
     outline: none;
     z-index: 10;
     transition: background-color 0.4s;
+    margin-right: 0.5vw;
+    margin-bottom: -0.3vw;
   }
 
   .toggle-button::before {
@@ -596,7 +598,7 @@
   .toggle-button[aria-pressed="true"]::before {
     background-color: #841933;
     border: 2px solid #edeee8;
-    transform: translateX(13px);
+    transform: translateX(26px);
   }
 }
 
@@ -786,6 +788,7 @@
     outline: none;
     z-index: 10;
     transition: background-color 0.4s;
+    margin-right: 1vw;
   }
 
   .toggle-button::before {
